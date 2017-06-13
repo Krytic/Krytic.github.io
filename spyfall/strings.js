@@ -1,0 +1,4 @@
+strings = {
+	reveal: "reveal",
+	
+};
