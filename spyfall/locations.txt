@@ -1,2 +1,38 @@
-Spa
+Airplane
+Arena
+Bank
+Bar
+Battlefield
+Casino
+Cathedral
+Circus
+Courtroom
+Desert Island
+Factory
+Hospital
+Laboratory
+Market
+Mars
+Pirate Ship
 Police Station
+Prison
+Restaurant
+School
+Sewer
+Space Station
+Submarine
+Subway
+Swimming Pool
+Theatre
+Birthday Party
+Camping
+Castle
+Cinema
+Gas Station
+Horse Racing
+Hotel
+Library
+Museum
+Park
+Train
+Zoo
