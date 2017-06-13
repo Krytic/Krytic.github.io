@@ -29,7 +29,8 @@ function doreveal(i, place, spy, stop) {
 		$("#next").html("next player");
 		$("#next").click(function(){
 			if(i == stop) {
-				$("#playarea").html("<h1 class=\"text-center\">That's all folks!</h1>");
+				$("#playarea").html("<h1 class=\"text-center\">The game is now playing!</h1>"); //<button id=\"reset\" class=\"btn btn-block btn-danger\">Reset</button>");
+				return;
 			} else {
 				doreveal(i+1, place, spy, stop);
 			}
@@ -85,7 +86,7 @@ $(document).ready(function(){
 		});
 
 		spy = fetch_random(players);
-
+		$("#savearea").html($("#playarea").html());
 		$("#playarea").html("<h3 id=\"name\" class=\"text-center\"></h3><br /><p class=\"text-bold text-center lead\" id=\"role\"></p><br /><button id=\"reveal\" class=\"btn btn-info center-block\">reveal location / spy</button>");
 		people = [];
 		for (var key in players) {
@@ -94,6 +95,18 @@ $(document).ready(function(){
 			}
 		}
 
-		doreveal(0, place, spy, player_count-1);
+		doreveal(5, place, spy, player_count-1);
+
+		$("#reset").click(function(){
+			console.log("click me harder daddy")
+			$("#playarea").html($("#savearea").html());
+			$(function() {
+				$("input").each(function() {
+					if($(this).attr("type") == "checkbox" && $(this).attr("data-toggle") == "toggle") {
+						players[$(this).attr("name")] = $(this).is(":checked");
+					}
+				});
+			});
+		});
 	});
 });
