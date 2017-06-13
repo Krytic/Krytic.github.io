@@ -1,0 +1,559 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"n",
+				"numberArray"
+			],
+			[
+				"texa",
+				"text-align"
+			],
+			[
+				"text",
+				"text-darken-2"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"user",
+				"usergroup_data"
+			],
+			[
+				"mouse",
+				"mouse_position"
+			],
+			[
+				"follow",
+				"follow_cursor"
+			],
+			[
+				"ntH",
+				"nth_fibonacci"
+			],
+			[
+				"nth",
+				"nth_fibonacci"
+			],
+			[
+				"Com",
+				"ComplexNumber"
+			],
+			[
+				"C",
+				"ComplexNumber"
+			],
+			[
+				"new",
+				"new_pos"
+			],
+			[
+				"construct",
+				"construct_row"
+			],
+			[
+				"tab",
+				"table"
+			],
+			[
+				"form",
+				"form_container"
+			],
+			[
+				"TABLE",
+				"TABLE_PREFIX"
+			],
+			[
+				"position_",
+				"position_usergroup"
+			],
+			[
+				"positions_",
+				"positions_admin_title"
+			],
+			[
+				"add",
+				"add_hook"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 196.0,
+		"last_filter": "save",
+		"selected_items":
+		[
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"close",
+				"Project: Close"
+			],
+			[
+				"ssph",
+				"Set Syntax: PHP"
+			],
+			[
+				": c",
+				"Set Syntax: C"
+			],
+			[
+				"sspty",
+				"Set Syntax: Python"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"dock",
+				"Snippet: Start Docblock"
+			],
+			[
+				"ssphp",
+				"Set Syntax: PHP"
+			],
+			[
+				"ss",
+				"Set Syntax: HTML"
+			],
+			[
+				"beauti",
+				"HTMLBeautify"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"prettify",
+				"HTMLPrettify"
+			],
+			[
+				"sshtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"project",
+				"Project: Add Folder"
+			],
+			[
+				"ssjava",
+				"Set Syntax: Java"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			],
+			[
+				"sscss",
+				"Set Syntax: CSS"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"mybb",
+				"Mybb Tpl: Load templates"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 436.0,
+		"history":
+		[
+			"self.view",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp/www/spyfall"
+	],
+	"file_history":
+	[
+		"/C/wamp/www/CPMS/inc/plugins/conversations/manifest.php",
+		"/C/wamp/www/CPMS/inc/plugins/conversations.php",
+		"/C/wamp/www/CPMS/.gitignore",
+		"/C/wamp/www/tutor/index.php",
+		"/C/Users/Sean/Desktop/CS A3/obj",
+		"/C/Users/Sean/Desktop/CS A3/part1.c",
+		"/C/wamp/www/ionic/assets/css/main.css",
+		"/C/wamp/www/ionic/index.html",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 3/Packages/User/lipsum.sublime-snippet",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 3/Packages/User/jquery.sublime-snippet",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 3/Packages/User/SaveRegime.py",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/wamp/www/ionic/css/main.css",
+		"/C/wamp/www/ionic/js/main.js",
+		"/C/wamp/www/ionic/index.php",
+		"/C/wamp/www/ionic/css/colors.css",
+		"/C/Users/Sean/Desktop/ /JamesTurnerYT/commentboxbg.png",
+		"/C/wamp/bin/mysql/mysql5.7.9/my.ini",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/plugins/wiki.php",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/plugins/wiki/templates/stylesheets/wiki.css",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/plugins/wiki/installers/install.php",
+		"/C/wamp/www/study/jscripts/general.js",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/plugins/wiki/upgraders/to_1_2_0.php",
+		"/C/wamp/www/study/images/project/main.js",
+		"/C/wamp/www/mybb/inc/plugins/wiki/templates/protect.html",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/plugins/wiki/templates/category_desc.html",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/languages/english/wiki.lang.php",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/inc/plugins/wiki/templates/page.html",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/admin/modules/wiki/categories.php",
+		"/C/wamp/www/mybb/inc/plugins/wiki/installers/install.php",
+		"/C/Users/Sean/Documents/MyBBWiki/Upload/wiki.php",
+		"/C/wamp/www/mybb/inc/plugins/wiki/templates/article_edit.html",
+		"/C/Users/Sean/Desktop/Krytical Solutions/Positions & Ranks/inc/languages/english/admin/positions.lang.php",
+		"/C/Users/Sean/Desktop/Krytical Solutions/Positions & Ranks/positions.php",
+		"/C/Users/Sean/Desktop/Krytical Solutions/Positions & Ranks/admin/modules/user/positions.php",
+		"/C/wamp/www/mybb/inc/3rdparty/diff/Diff/Renderer/Unified.php",
+		"/C/wamp/www/mybb/inc/3rdparty/diff/Diff.php",
+		"/C/wamp/www/mybb/inc/3rdparty/diff/Diff/Renderer/Context.php",
+		"/C/wamp/www/mybb/inc/3rdparty/diff/Diff/Renderer/Inline.php",
+		"/C/wamp/www/mybb/showthread.php",
+		"/C/wamp/www/mybb/inc/functions_post.php",
+		"/C/wamp/www/mybb/inc/adminfunctions_templates.php",
+		"/C/wamp/www/mybb/inc/class_templates.php",
+		"/C/wamp/www/mybb/admin/modules/user/titles.php",
+		"/C/wamp/www/mybb/admin/modules/user/users.php",
+		"/C/wamp/www/magic/index.php",
+		"/C/Users/Sean/Desktop/jacklin.js",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise07.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise07.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise04.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise04.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise05.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise05.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise06.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise06.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/words.txt",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Challenge02.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise03.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise03.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Challenge01.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise01.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise01.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Exercise02.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Sample Solutions/Exercise02.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Exercises/Challenge01.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab10.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab09.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab08.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab07.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab06.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab05.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab01.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab02.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab03.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Revision/Lab Solutions/Lab04.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab10.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab09.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab08.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab07.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab06.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab05.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab04.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab03.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab02.py",
+		"/C/Users/Sean/Desktop/CompSci 105 Labs/Lab01.py",
+		"/C/wamp/www/mybb/inc/plugins/positions.php",
+		"/C/wamp/www/polyboard/index.php",
+		"/C/wamp/www/polyboard/views/index.html",
+		"/C/Users/Sean/AppData/Local/Temp/Temp1_Twig-1.26.0.zip/Twig-1.26.0/lib/Twig/Autoloader.php",
+		"/C/wamp/www/mybb/inc/functions.php",
+		"/C/wamp/www/mybb/inc/datahandlers/user.php",
+		"/C/wamp/www/mybb/inc/languages/english/admin/positions.lang.php",
+		"/C/wamp/www/mybb/admin/modules/user/positions.php",
+		"/C/wamp/www/mybb/inc/functions_user.php",
+		"/C/wamp/www/mybb/inc/mybb_group.php",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/css/index.css",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/home.html",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/index.html",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/css/bootstrap.min.css",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/js/templates.js",
+		"/C/Program Files (x86)/Steam/steamapps/common/Evil Genius/DynamicResources/Config/Default.ksb",
+		"/C/Program Files (x86)/Steam/steamapps/common/Evil Genius/DynamicResources/Config/autoexec.con",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/js/index.js",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/js/material.min.js",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/fonts/glyphicons-halflings-regular.eot",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/css/bootstrap.min.css.map",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/js/jquery-3.1.0.min.js",
+		"/C/Users/Sean/Desktop/Enzyme/Enzyme/www/spec.html",
+		"/C/evilgenius-tpl/tpl/error_nopermission.mybbtpl",
+		"/C/evilgenius-tpl/tpl/member_profile.mybbtpl",
+		"/C/evilgenius-tpl/tpl/header_welcomeblock_member.mybbtpl",
+		"/C/evilgenius-tpl/tpl/updates_forumdisplay_thread.mybbtpl",
+		"/C/evilgenius-tpl/tpl/updates_forumdisplay_threadlist.mybbtpl",
+		"/C/evilgenius-tpl/tpl/updates_showthread.mybbtpl",
+		"/C/evilgenius-tpl/tpl/updates_forumdisplay.mybbtpl",
+		"/C/wamp/www/evilgenius/showthread.php",
+		"/C/evilgenius-tpl/tpl/showthread.mybbtpl",
+		"/C/evilgenius-tpl/tpl/forumdisplay.mybbtpl",
+		"/C/evilgenius-tpl/tpl/forumdisplay_threadlist.mybbtpl",
+		"/C/evilgenius-tpl/tpl/forumdisplay_thread.mybbtpl",
+		"/C/wamp/www/evilgenius/updatecss.php",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Sean/Documents/My Games/Age of Empires 3/Savegame/sp_Seville_homecity.xml",
+		"/C/Program Files/Sublime Text 3/Packages/XML.sublime-package"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"info",
+			"username",
+			"\t\tif (!$db->table_exists('wiki'))\n\t\t{\n\t\t\t// VARCHAR(65535) is MySQL v5.0.3 and up\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki(\n\t\t\t\tid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tauthors TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255),\n\t\t\t\tcontent TEXT,\n\t\t\t\twatching VARCHAR(65535),\n\t\t\t\tprotected INT DEFAULT '0',\n\t\t\t\tlastauthor TEXT(255) DEFAULT '',\n\t\t\t\tlastauthorid INT(8),\n\t\t\t\tnotepad TEXT(255) DEFAULT '',\n\t\t\t\tcategory TEXT(255),\n\t\t\t\toriginal TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_edits'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_edits(\n\t\t\t\teid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\taid INT(8) NOT NULL,\n\t\t\t\tauthor INT(8) NOT NULL,\n\t\t\t\trevision TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_categories'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_categories(\n\t\t\t\tcid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\ttitle TEXT(255)\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_perms'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_perms(\n\t\t\t\tgid INT(10) NOT NULL PRIMARY KEY,\n\t\t\t\tcan_view BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_create BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_edit BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_protect BOOLEAN NOT NULL DEFAULT '0',\n\t\t\t\tcan_export BOOLEAN NOT NULL DEFAULT '0'\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_settings'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_settings(\n\t\t\t\tsid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tname TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255) NOT NULL,\n\t\t\t\toptionscode TEXT(255) NOT NULL,\n\t\t\t\tvalue TEXT(255) DEFAULT ''\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_templates'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_templates(\n\t\t\t\ttid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tname TEXT(255) NOT NULL,\n\t\t\t\tsearch TEXT(255) NOT NULL,\n\t\t\t\t`replace` TEXT NOT NULL\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}",
+			"if (!$db->table_exists('wiki'))\n\t\t{\n\t\t\t// VARCHAR(65535) is MySQL v5.0.3 and up\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki(\n\t\t\t\tid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tauthors TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255),\n\t\t\t\tcontent TEXT,\n\t\t\t\twatching VARCHAR(65535),\n\t\t\t\tprotected INT DEFAULT '0',\n\t\t\t\tlastauthor TEXT(255) DEFAULT '',\n\t\t\t\tlastauthorid INT(8),\n\t\t\t\tnotepad TEXT(255) DEFAULT '',\n\t\t\t\tcategory TEXT(255),\n\t\t\t\toriginal TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}",
+			"if (!$db->table_exists('wiki'))\n\t\t{\n\t\t\t// VARCHAR(65535) is MySQL v5.0.3 and up\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki(\n\t\t\t\tid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tauthors TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255),\n\t\t\t\tcontent TEXT,\n\t\t\t\twatching VARCHAR(65535),\n\t\t\t\tprotected INT DEFAULT '0',\n\t\t\t\tlastauthor TEXT(255) DEFAULT '',\n\t\t\t\tlastauthorid INT(8),\n\t\t\t\tnotepad TEXT(255) DEFAULT '',\n\t\t\t\tcategory TEXT(255),\n\t\t\t\toriginal TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\\",
+			"if (!$db->table_exists('wiki'))\n\t\t{\n\t\t\t// VARCHAR(65535) is MySQL v5.0.3 and up\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki(\n\t\t\t\tid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tauthors TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255),\n\t\t\t\tcontent TEXT,\n\t\t\t\twatching VARCHAR(65535),\n\t\t\t\tprotected INT DEFAULT '0',\n\t\t\t\tlastauthor TEXT(255) DEFAULT '',\n\t\t\t\tlastauthorid INT(8),\n\t\t\t\tnotepad TEXT(255) DEFAULT '',\n\t\t\t\tcategory TEXT(255),\n\t\t\t\toriginal TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_edits'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_edits(\n\t\t\t\teid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\taid INT(8) NOT NULL,\n\t\t\t\tauthor INT(8) NOT NULL,\n\t\t\t\trevision TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_categories'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_categories(\n\t\t\t\tcid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\ttitle TEXT(255)\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}",
+			"if (!$db->table_exists('wiki'))\n\t\t{\n\t\t\t// VARCHAR(65535) is MySQL v5.0.3 and up\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki(\n\t\t\t\tid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tauthors TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255),\n\t\t\t\tcontent TEXT,\n\t\t\t\twatching VARCHAR(65535),\n\t\t\t\tprotected INT DEFAULT '0',\n\t\t\t\tlastauthor TEXT(255) DEFAULT '',\n\t\t\t\tlastauthorid INT(8),\n\t\t\t\tnotepad TEXT(255) DEFAULT '',\n\t\t\t\tcategory TEXT(255),\n\t\t\t\toriginal TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_edits'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_edits(\n\t\t\t\teid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\taid INT(8) NOT NULL,\n\t\t\t\tauthor INT(8) NOT NULL,\n\t\t\t\trevision TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_categories'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_categories(\n\t\t\t\tcid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\ttitle TEXT(255)\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_perms'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_perms(\n\t\t\t\tgid INT(10) NOT NULL PRIMARY KEY,\n\t\t\t\tcan_view BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_create BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_edit BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_protect BOOLEAN NOT NULL DEFAULT '0',\n\t\t\t\tcan_export BOOLEAN NOT NULL DEFAULT '0'\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_settings'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_settings(\n\t\t\t\tsid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tname TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255) NOT NULL,\n\t\t\t\toptionscode TEXT(255) NOT NULL,\n\t\t\t\tvalue TEXT(255) DEFAULT ''\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_templates'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_templates(\n\t\t\t\ttid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tname TEXT(255) NOT NULL,\n\t\t\t\tsearch TEXT(255) NOT NULL,\n\t\t\t\t`replace` TEXT NOT NULL\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}",
+			"<?php\n\nclass WikiInstaller\n{\n\tprivate function buildTables()\n\t{\n\t\tglobal $db;\n\n\t\t$collation = $db->build_create_table_collation();\n\n\t\tif (!$db->table_exists('wiki'))\n\t\t{\n\t\t\t// VARCHAR(65535) is MySQL v5.0.3 and up\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki(\n\t\t\t\tid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tauthors TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255),\n\t\t\t\tcontent TEXT,\n\t\t\t\twatching VARCHAR(65535),\n\t\t\t\tprotected INT DEFAULT '0',\n\t\t\t\tlastauthor TEXT(255) DEFAULT '',\n\t\t\t\tlastauthorid INT(8),\n\t\t\t\tnotepad TEXT(255) DEFAULT '',\n\t\t\t\tcategory TEXT(255),\n\t\t\t\toriginal TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_edits'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_edits(\n\t\t\t\teid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\taid INT(8) NOT NULL,\n\t\t\t\tauthor INT(8) NOT NULL,\n\t\t\t\trevision TEXT\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_categories'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_categories(\n\t\t\t\tcid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\ttitle TEXT(255)\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_perms'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_perms(\n\t\t\t\tgid INT(10) NOT NULL PRIMARY KEY,\n\t\t\t\tcan_view BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_create BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_edit BOOLEAN NOT NULL DEFAULT '1',\n\t\t\t\tcan_protect BOOLEAN NOT NULL DEFAULT '0',\n\t\t\t\tcan_export BOOLEAN NOT NULL DEFAULT '0'\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_settings'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_settings(\n\t\t\t\tsid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tname TEXT(255) NOT NULL,\n\t\t\t\ttitle TEXT(255) NOT NULL,\n\t\t\t\toptionscode TEXT(255) NOT NULL,\n\t\t\t\tvalue TEXT(255) DEFAULT ''\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\t\tif (!$db->table_exists('wiki_templates'))\n\t\t{\n\t\t\t$db->write_query(sprintf(\"CREATE TABLE %swiki_templates(\n\t\t\t\ttid INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,\n\t\t\t\tname TEXT(255) NOT NULL,\n\t\t\t\tsearch TEXT(255) NOT NULL,\n\t\t\t\t`replace` TEXT NOT NULL\n\t\t\t\t) ENGINE=MyISAM{$collation};\", TABLE_PREFIX));\n\t\t}\n\n\t\tunset($collation);\n\t}\n\n\tprivate function insertCSS()\n\t{\n\t\tglobal $db;\n\t\trequire_once(MYBB_ADMIN_DIR . \"inc/functions_themes.php\");\n\n\t\t// Add stylesheet to the master template so it becomes inherited.\n\t\t$stylesheet = @file_get_contents(MYBB_ROOT.'inc/plugins/wiki/templates/stylesheets/wiki.css');\n\t\t$wiki_stylesheet = array(\n\t\t\t'sid' => NULL,\n\t\t\t'name' => 'wiki.css',\n\t\t\t'tid' => '1',\n\t\t\t'stylesheet' => $db->escape_string($stylesheet),\n\t\t\t'cachefile' => 'wiki.css',\n\t\t\t'lastmodified' => TIME_NOW,\n\t\t\t);\n\t\t$db->insert_query('themestylesheets', $wiki_stylesheet);\n\t\tcache_stylesheet(1, \"wiki.css\", $stylesheet);\n\t\tupdate_theme_stylesheet_list(\"1\");\n\t}\n\n\tprivate function insertSettings()\n\t{\n\t\tglobal $db;\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_enable',\n\t\t\t'title'            => 'Power Switch',\n\t\t\t'optionscode'    => 'onoff',\n\t\t\t'value'        => '1',\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_parse_smileys',\n\t\t\t'title'            => 'Parse Smilies?',\n\t\t\t'optionscode'    => 'yesno',\n\t\t\t'value'        => 0,\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_mybbparser',\n\t\t\t'title'            => 'Use the MyBB Parser?',\n\t\t\t'optionscode'    => 'yesno',\n\t\t\t'value'        => 1,\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_markdown',\n\t\t\t'title'            => 'Use Markdown Parser?',\n\t\t\t'optionscode'    => 'yesno',\n\t\t\t'value'        => 1,\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_mycode_editor',\n\t\t\t'title'            => 'Clickable MyCode editor',\n\t\t\t'optionscode'    => 'yesno',\n\t\t\t'value'        => '1',\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_parse_html',\n\t\t\t'title'            => 'Parse HTML?',\n\t\t\t'optionscode'    => 'yesno',\n\t\t\t'value'        => 0,\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\n\t\t$insert_array = array(\n\t\t\t'sid'            => 'NULL',\n\t\t\t'name'        => 'wiki_export_allowed',\n\t\t\t'title'            => 'Exporting Enabled?',\n\t\t\t'optionscode'    => 'yesno',\n\t\t\t'value'        => 1,\n\t\t\t);\n\t\t$db->insert_query('wiki_settings', $insert_array);\n\t}\n\n\tprivate function handleMyAlerts()\n\t{\n\t\tglobal $db, $cache;\n\t\tif (class_exists('MybbStuff_MyAlerts_AlertTypeManager'))\n\t\t{\n\t\t\t$alertTypeManager = MybbStuff_MyAlerts_AlertTypeManager::getInstance();\n\n\t\t\tif (!$alertTypeManager)\n\t\t\t{\n\t\t\t\t$alertTypeManager = MybbStuff_MyAlerts_AlertTypeManager::createInstance($db, $cache);\n\t\t\t}\n\n\t\t\t$alertType = new MybbStuff_MyAlerts_Entity_AlertType();\n\t\t\t$alertType->setCode('mybb_wiki_alert_code'); // The codename for your alert type. Can be any unique string.\n\t\t\t$alertType->setEnabled(true);\n\t\t\t$alertType->setCanBeUserDisabled(true);\n\n\t\t\t$alertTypeManager->add($alertType);\n\t\t}\n\t}\n\n\tpublic function go()\n\t{\n\t\tglobal $db, $cache;\n\n\t\tif(function_exists('wiki_is_installed') && wiki_is_installed()) {\n\t\t\treturn false;\n\t\t}\n\n\t\t$this->buildTables();\n\t\t$this->insertSettings();\n\t\trebuild_settings();\n\n\t\t$this->insertCSS();\n\n\t\t$this->handleMyAlerts();\n\n\t\t$query = $db->write_query(\"SELECT * FROM `\" . TABLE_PREFIX . \"usergroups`\");\n\t\t$cache_arr = array();\n\n\t\twhile($group = $db->fetch_array($query))\n\t\t{\n\t\t// Set the default permissions\n\t\t\t$db->write_query(\"INSERT INTO \" . TABLE_PREFIX . \"wiki_perms(`gid`,`can_view`,`can_create`,`can_edit`,`can_protect`,`can_export`) VALUES('\" . $group['gid'] . \"','1','1','1','0','0')\");\n\n\t\t// and cache them\n\t\t\t$cache_arr['gid_' . $group['gid']] = array(\n\t\t\t\t'can_view'\t\t=>\t1,\n\t\t\t\t'can_create'\t=>\t1,\n\t\t\t\t'can_edit'\t\t=>\t1,\n\t\t\t\t'can_protect'\t=>\t0,\n\t\t\t\t'can_export'\t=>\t0\n\t\t\t\t);\n\t\t}\n\n\t\t$cache->update('wiki_permissions', $cache_arr);\n\n\t\t$db->write_query(\"INSERT INTO \" . TABLE_PREFIX . \"wiki_categories(title) VALUES('Meta')\");\n\n\t\treturn true;\n\t}\n}\n\n?>",
+			"$article",
+			"article",
+			"article['id']",
+			"['id']",
+			"view",
+			"categories",
+			"%",
+			"category_desc",
+			"tid",
+			"Template",
+			"col",
+			"renderer",
+			"ranks",
+			"award",
+			"rank",
+			"ranks",
+			"rank",
+			"build_postbit",
+			"username",
+			"$post = ",
+			"variable",
+			"build_postbit",
+			"$post ",
+			"$post = ",
+			"$user",
+			"$user[",
+			"$user",
+			"postitions_global_start",
+			"return $",
+			"hooks",
+			"build_postbit",
+			"postbit",
+			"hook",
+			"['edit",
+			"build_user_view_card",
+			"card(",
+			"card",
+			"fetch_default_view",
+			"['vid']",
+			"postcount",
+			"vid",
+			"!$mybb",
+			"!$",
+			"post_count",
+			"count",
+			"graph",
+			"utid",
+			"rank",
+			"_add",
+			"graph",
+			"usergroups",
+			"usergroup",
+			"position_user",
+			"usergroup",
+			"link",
+			"permissions",
+			"jhon",
+			"facts",
+			"1486758468_d3495a38b0e2897c362ca95359ce2039",
+			"services",
+			"group(",
+			"group",
+			"$user =",
+			"extra_user",
+			"updated_user",
+			"$extra_user_updates",
+			"userhandler",
+			"select",
+			"$user = ",
+			"%s",
+			"<div id",
+			"admin_user_users_edit_graph",
+			"run_hooks(\"admin_user_users_edit",
+			"overview",
+			"edit",
+			"!(\\')position",
+			"![']position",
+			";\n",
+			"mark",
+			"avatar",
+			"<html>\n<head>\n<title>{$mybb->settings['bbname']} - {$lang->profile}</title>\n{$headerinclude}\n<script type=\"text/javascript\" src=\"{$mybb->asset_url}/jscripts/report.js?ver=1800\"></script>\n</head>\n<body>\n{$header}\n<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" align=\"center\" style=\"margin-top: 20px;\">\n<div class=\"buttons right\" style=\"margin-bottom: 6px;\"><a href=\"private.php?action=send&amp;uid={$memprofile['uid']}\" class=\"button profilebutton\">{$lang->send_pm}</a></div>\n<tr>\n<td class=\"usercpresponsive usercpp\" valign=\"top\">\n<table border=\"0\" cellspacing=\"{$theme['borderwidth']}\" cellpadding=\"{$theme['tablespace']}\" width=\"100%\" class=\"tborder\">\n<tr>\n<td colspan=\"2\" class=\"thead3 ccgprofilethead\"><strong><center><span class=\"ccgpavatar\">{$avatar}</span><br /><span class=\"ccgprofilename\">{$formattedname}'s Profile</span></center></strong></td>\n</tr>\n  <tr>\n<td class=\"trow1\">\n<center>\n<br />\n{$lang->postbit_status} {$online_status}<br />\n<div class=\"pstar\">\n{$userstars}\n</div></center>\n</td></tr>\n<td class=\"trow2\">\n<b>{$lang->date_of_birth}</b> {$membday}<br>\n<b>Age: </b>{$membdayage}<br>\n<b>{$lang->registration_date}</b> {$memregdate}<br>\n<b>{$lang->local_time}:</b> {$localtime}<br />\n{$buddy_options}<br /><br />\n<div class=\"ccgpcbox\">\n<center><span class=\"ccgforumiconss\"><a href=\"private.php?action=send&amp;uid={$memprofile['uid']}\" title=\"Send PM\"><i class=\"fa fa-comments\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"member.php?action=emailuser&uid={$memprofile['uid']}\" title=\"Send E-Mail\"><i class=\"fa fa-envelope\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"search.php?action=finduserthreads&uid={$memprofile['uid']}\" title=\"Show all Threads\"><i class=\"fa fa-file-o\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"search.php?action=finduser&uid={$memprofile['uid']}\" title=\"Show all Posts\"><i class=\"fa fa-file-text-o\"></i></a></span><br></center>\n</div>\n{$awaybit}{$bannedbit}\n</td>\n</tr>\n</table>\n{$modoptions}\n{$adminoptions}\n<br />\n</td>\n  \n<td class=\"ccgprotabbox usercpresponsive\">\n\t<div class=\"tabwrap\"><ul class=\"tabs\">\n\t\t<li><a href=\"#tab1\">About</a></li>\n\t\t<li><a href=\"#tab2\">Contact</a></li>\n\t\t<li><a href=\"#tab3\">Activity</a></li>\n\t</ul>\n\t</div>\n\t\t\t\t\t\t   \n <div class=\"tab_container\">\n<div id=\"tab1\" class=\"tab_content\">\n\t\t\t{$profilefields}\n\t\t\t{$signature}\n\t\t\t<div style=\"text-align: center\">{$buddy_options}{$ignore_options}{$report_options}</div>\n</div>\n\t\t\t\t\t\t\t\t\t\t   \n<div class=\"tab_container\">\n<div id=\"tab2\" class=\"tab_content\">\n\t\t\t{$contact_details}\n</div>\n\t\t\t\t\t\t\t\t  \n\n\t\t   \n<div class=\"tab_container\">\n<div id=\"tab3\" class=\"tab_content\">\n\t\t\t<table border=\"0\" cellspacing=\"{$theme['borderwidth']}\" cellpadding=\"{$theme['tablespace']}\" class=\"tborder\">\n\t\t\t\t<tr>\n\t\t\t\t\t<td colspan=\"2\" class=\"thead\"><strong>{$lang->users_forum_info}</strong></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\" style=\"width: 30%;\"><strong>{$lang->joined}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$memregdate}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow2\"><strong>{$lang->lastvisit}</strong></td>\n\t\t\t\t\t<td class=\"trow2\">{$memlastvisitdate}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\"><strong>{$lang->total_posts}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$memprofile['postnum']} ({$lang->ppd_percent_total})<br /><span class=\"smalltext\">(<a href=\"search.php?action=finduser&amp;uid={$uid}\">{$lang->find_posts}</a>)</span></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow2\"><strong>{$lang->total_threads}</strong></td>\n\t\t\t\t\t<td class=\"trow2\">{$memprofile['threadnum']} ({$lang->tpd_percent_total})<br /><span class=\"smalltext\">(<a href=\"search.php?action=finduserthreads&amp;uid={$uid}\">{$lang->find_threads}</a>)</span></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\"><strong>{$lang->timeonline}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$timeonline}</td>\n\t\t\t\t</tr>\n\t\t\t\t{$referrals}\n\t\t\t\t{$reputation}\n\t\t\t\t{$warning_level}\n\t\t\t</table>\n</div>\n</td>\n</table>                                       \n{$footer}\n</body>\n</html>",
+			"<html>\n<head>\n<title>{$mybb->settings['bbname']} - {$lang->profile}</title>\n{$headerinclude}\n<script type=\"text/javascript\" src=\"{$mybb->asset_url}/jscripts/report.js?ver=1800\"></script>\n</head>\n<body>\n{$header}\n<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" align=\"center\" style=\"margin-top: 20px;\">\n<div class=\"buttons right\" style=\"margin-bottom: 6px;\"><a href=\"private.php?action=send&amp;uid={$memprofile['uid']}\" class=\"button profilebutton\">{$lang->send_pm}</a></div>\n<tr>\n<td class=\"usercpresponsive usercpp\" valign=\"top\">\n<table border=\"0\" cellspacing=\"{$theme['borderwidth']}\" cellpadding=\"{$theme['tablespace']}\" width=\"100%\" class=\"tborder\">\n<tr>\n<td colspan=\"2\" class=\"thead3 ccgprofilethead\"><strong><center><span class=\"ccgpavatar\">{$avatar}</span><br /><span class=\"ccgprofilename\">{$formattedname}'s Profile</span></center></strong></td>\n</tr>\n  <tr>\n<td class=\"trow1\">\n<center>\n<br />\n{$lang->postbit_status} {$online_status}<br />\n<div class=\"pstar\">\n{$userstars}\n</div></center>\n</td></tr>\n<td class=\"trow2\">\n<b>{$lang->date_of_birth}</b> {$membday}<br>\n<b>Age: </b>{$membdayage}<br>\n<b>{$lang->registration_date}</b> {$memregdate}<br>\n<b>{$lang->local_time}:</b> {$localtime}<br />\n{$buddy_options}<br /><br />\n<div class=\"ccgpcbox\">\n<center><span class=\"ccgforumiconss\"><a href=\"private.php?action=send&amp;uid={$memprofile['uid']}\" title=\"Send PM\"><i class=\"fa fa-comments\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"member.php?action=emailuser&uid={$memprofile['uid']}\" title=\"Send E-Mail\"><i class=\"fa fa-envelope\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"search.php?action=finduserthreads&uid={$memprofile['uid']}\" title=\"Show all Threads\"><i class=\"fa fa-file-o\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"search.php?action=finduser&uid={$memprofile['uid']}\" title=\"Show all Posts\"><i class=\"fa fa-file-text-o\"></i></a></span><br></center>\n</div>\n{$awaybit}{$bannedbit}\n</td>\n</tr>\n</table>\n{$modoptions}\n{$adminoptions}\n<br />\n</td>\n  \n<td class=\"ccgprotabbox usercpresponsive\">\n\t<div class=\"tabwrap\"><ul class=\"tabs\">\n\t\t<li><a href=\"#tab1\">About</a></li>\n\t\t<li><a href=\"#tab2\">Contact</a></li>\n\t\t<li><a href=\"#tab3\">Activity</a></li>\n\t</ul>\n\t</div>\n\t\t\t\t\t\t   \n <div class=\"tab_container\">\n<div id=\"tab1\" class=\"tab_content\">\n\t\t\t{$profilefields}\n\t\t\t{$signature}\n\t\t\t<div style=\"text-align: center\">{$buddy_options}{$ignore_options}{$report_options}</div>\n</div>\n\t\t\t\t\t\t\t\t\t\t   \n<div class=\"tab_container\">\n<div id=\"tab2\" class=\"tab_content\">\n\t\t\t{$contact_details}\n</div>\n\t\t\t\t\t\t\t\t  \n\n\t\t   \n<div class=\"tab_container\">\n<div id=\"tab3\" class=\"tab_content\">\n\t\t\t<table border=\"0\" cellspacing=\"{$theme['borderwidth']}\" cellpadding=\"{$theme['tablespace']}\" class=\"tborder\">\n\t\t\t\t<tr>\n\t\t\t\t\t<td colspan=\"2\" class=\"thead\"><strong>{$lang->users_forum_info}</strong></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\" style=\"width: 30%;\"><strong>{$lang->joined}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$memregdate}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow2\"><strong>{$lang->lastvisit}</strong></td>\n\t\t\t\t\t<td class=\"trow2\">{$memlastvisitdate}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\"><strong>{$lang->total_posts}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$memprofile['postnum']} ({$lang->ppd_percent_total})<br /><span class=\"smalltext\">(<a href=\"search.php?action=finduser&amp;uid={$uid}\">{$lang->find_posts}</a>)</span></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow2\"><strong>{$lang->total_threads}</strong></td>\n\t\t\t\t\t<td class=\"trow2\">{$memprofile['threadnum']} ({$lang->tpd_percent_total})<br /><span class=\"smalltext\">(<a href=\"search.php?action=finduserthreads&amp;uid={$uid}\">{$lang->find_threads}</a>)</span></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\"><strong>{$lang->timeonline}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$timeonline}</td>\n\t\t\t\t</tr>\n\t\t\t\t{$referrals}\n\t\t\t\t{$reputation}\n\t\t\t\t{$warning_level}\n\t\t\t</table>\n</div>\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n</td>\n</table>                                       \n{$footer}\n</body>\n</html>",
+			"<html>\n<head>\n<title>{$mybb->settings['bbname']} - {$lang->profile}</title>\n{$headerinclude}\n<script type=\"text/javascript\" src=\"{$mybb->asset_url}/jscripts/report.js?ver=1800\"></script>\n</head>\n<body>\n{$header}\n<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" align=\"center\" style=\"margin-top: 20px;\">\n<div class=\"buttons right\" style=\"margin-bottom: 6px;\"><a href=\"private.php?action=send&amp;uid={$memprofile['uid']}\" class=\"button profilebutton\">{$lang->send_pm}</a></div>\n<tr>\n<td class=\"usercpresponsive usercpp\" valign=\"top\">\n<table border=\"0\" cellspacing=\"{$theme['borderwidth']}\" cellpadding=\"{$theme['tablespace']}\" width=\"100%\" class=\"tborder\">\n<tr>\n<td colspan=\"2\" class=\"thead3 ccgprofilethead\"><strong><center><span class=\"ccgpavatar\">{$avatar}</span><br /><span class=\"ccgprofilename\">{$formattedname}'s Profile</span></center></strong></td>\n</tr>\n  <tr>\n<td class=\"trow1\">\n<center>\n<br />\n{$lang->postbit_status} {$online_status}<br />\n<div class=\"pstar\">\n{$userstars}\n</div></center>\n</td></tr>\n<td class=\"trow2\">\n<b>{$lang->date_of_birth}</b> {$membday}<br>\n<b>Age: </b>{$membdayage}<br>\n<b>{$lang->registration_date}</b> {$memregdate}<br>\n<b>{$lang->local_time}:</b> {$localtime}<br />\n{$buddy_options}<br /><br />\n<div class=\"ccgpcbox\">\n<center><span class=\"ccgforumiconss\"><a href=\"private.php?action=send&amp;uid={$memprofile['uid']}\" title=\"Send PM\"><i class=\"fa fa-comments\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"member.php?action=emailuser&uid={$memprofile['uid']}\" title=\"Send E-Mail\"><i class=\"fa fa-envelope\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"search.php?action=finduserthreads&uid={$memprofile['uid']}\" title=\"Show all Threads\"><i class=\"fa fa-file-o\"></i></a></span>\n<span class=\"ccgforumiconss\"><a href=\"search.php?action=finduser&uid={$memprofile['uid']}\" title=\"Show all Posts\"><i class=\"fa fa-file-text-o\"></i></a></span><br></center>\n</div>\n{$awaybit}{$bannedbit}\n</td>\n</tr>\n</table>\n{$modoptions}\n{$adminoptions}\n<br />\n</td>\n  \n<td class=\"ccgprotabbox usercpresponsive\">\n    <div class=\"tabwrap\"><ul class=\"tabs\">\n        <li><a href=\"#tab1\">About</a></li>\n        <li><a href=\"#tab2\">Contact</a></li>\n        <li><a href=\"#tab3\">Activity</a></li>\n    </ul>\n\t</div>\n                           \n <div class=\"tab_container\">\n<div id=\"tab1\" class=\"tab_content\">\n\t\t\t{$profilefields}\n\t\t\t{$signature}\n\t\t\t<div style=\"text-align: center\">{$buddy_options}{$ignore_options}{$report_options}</div>\n</div>\n                                           \n<div class=\"tab_container\">\n<div id=\"tab2\" class=\"tab_content\">\n\t\t\t{$contact_details}\n</div>\n                                  \n\n           \n<div class=\"tab_container\">\n<div id=\"tab3\" class=\"tab_content\">\n\t\t\t<table border=\"0\" cellspacing=\"{$theme['borderwidth']}\" cellpadding=\"{$theme['tablespace']}\" class=\"tborder\">\n\t\t\t\t<tr>\n\t\t\t\t\t<td colspan=\"2\" class=\"thead\"><strong>{$lang->users_forum_info}</strong></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\" style=\"width: 30%;\"><strong>{$lang->joined}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$memregdate}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow2\"><strong>{$lang->lastvisit}</strong></td>\n\t\t\t\t\t<td class=\"trow2\">{$memlastvisitdate}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\"><strong>{$lang->total_posts}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$memprofile['postnum']} ({$lang->ppd_percent_total})<br /><span class=\"smalltext\">(<a href=\"search.php?action=finduser&amp;uid={$uid}\">{$lang->find_posts}</a>)</span></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow2\"><strong>{$lang->total_threads}</strong></td>\n\t\t\t\t\t<td class=\"trow2\">{$memprofile['threadnum']} ({$lang->tpd_percent_total})<br /><span class=\"smalltext\">(<a href=\"search.php?action=finduserthreads&amp;uid={$uid}\">{$lang->find_threads}</a>)</span></td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td class=\"trow1\"><strong>{$lang->timeonline}</strong></td>\n\t\t\t\t\t<td class=\"trow1\">{$timeonline}</td>\n\t\t\t\t</tr>\n\t\t\t\t{$referrals}\n\t\t\t\t{$reputation}\n\t\t\t\t{$warning_level}\n\t\t\t</table>\n</div>\n\n\n                                                                                    \n</td>\n</table>                                       \n{$footer}\n</body>\n</html>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Position"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "spyfall.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 346.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
