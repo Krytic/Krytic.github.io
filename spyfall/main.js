@@ -39,6 +39,7 @@ function doreveal(i, place, spy, stop) {
 }
 
 $(document).ready(function(){
+	console.log("fuk u frank");
 	var players = {};
 	var randomNumber = 1;
 	var lastRandomNumber = randomNumber;
@@ -96,6 +97,8 @@ $(document).ready(function(){
 		}
 
 		doreveal(0, place, spy, player_count-1);
+		
+		place = "";
 
 		$("#reset").click(function(){
 			console.log("click me harder daddy")
