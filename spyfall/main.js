@@ -39,7 +39,7 @@ function doreveal(i, place, spy, stop) {
 }
 
 $(document).ready(function(){
-	console.log("fuk u frank");
+	console.log("pls don't look at the source code, frank.");
 	var players = {};
 	var randomNumber = 1;
 	var lastRandomNumber = randomNumber;
