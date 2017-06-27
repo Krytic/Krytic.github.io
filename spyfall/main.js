@@ -95,7 +95,7 @@ $(document).ready(function(){
 			}
 		}
 
-		doreveal(5, place, spy, player_count-1);
+		doreveal(0, place, spy, player_count-1);
 
 		$("#reset").click(function(){
 			console.log("click me harder daddy")
