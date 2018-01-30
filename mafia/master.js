@@ -4,6 +4,7 @@ $(document).ready(function(){
 	function win(alignment) {
 		mode = (alignment == "Mafia" ? "danger": "success")
 		show_message(mode, "Winner!", alignment + " have won the game!");
+		$("[data-kill]").css({"display": "none"});
 	}
 
 	function remove_player(name) {
@@ -42,6 +43,8 @@ $(document).ready(function(){
 		return array;
 	}
 
+	add_player("robert");
+
 	function add_player(name) {
 		$("#no-players").remove();
 
@@ -63,9 +66,9 @@ $(document).ready(function(){
 			</article>`);
 	}
 
-	$("[data-kill]").on("click", function(){
+	$(document).on("click", "[data-kill]", function(){
 		remove_player($(this).data("kill"));
-	});
+	})
 
 	$('#new-player').on('keypress', function (e) {
 		if(e.which === 13){
@@ -79,6 +82,8 @@ $(document).ready(function(){
 
             //Enable the textbox again if needed.
             $(this).removeAttr("disabled");
+
+            $(this).focus();
         }
     });
 
