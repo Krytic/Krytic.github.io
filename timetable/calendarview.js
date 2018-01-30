@@ -30,7 +30,7 @@ $(document).ready(function() {
   });
 
   // Sean
-  add_calendar('ical', 'https://uoacal.auckland.ac.nz/calendar/b98fe7b5fd961c5a8bd01c370c9767843c49e75493cac64609ba8afafefb434777a41400dbdb80e908251853e20b73a0593ece280a8e31eb1d4a2e6676e371e7');
+  add_calendar('ical', 'uoacal.auckland.ac.nz/calendar/b98fe7b5fd961c5a8bd01c370c9767843c49e75493cac64609ba8afafefb434777a41400dbdb80e908251853e20b73a0593ece280a8e31eb1d4a2e6676e371e7');
 
   $('#add-google-calendars').on('click', () => google_auth(CLIENT_ID).then(gcal_list_calendars).then(add_gcal_list).catch(handle_err));
   $('#add-ical').on('click', () => add_ical_calendar());

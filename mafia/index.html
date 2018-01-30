@@ -1,0 +1,61 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mafia app</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+		<link rel="stylesheet" href="master.css" />
+	</head>
+	<body>
+		<section class="hero is-primary">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title">
+						Mafia
+					</h1>
+					<h2 class="subtitle">
+						Online Game Controller
+					</h2>
+				</div>
+			</div>
+		</section>
+		<br />
+		<div class="columns">
+			<div class="column is-one-quarter container is-fluid">
+				<nav class="panel" id="playerlist">
+					<p class="panel-heading">
+						players
+					</p>
+					<div class="panel-block" id="no-players">
+						<em>no players yet</em>
+					</div>
+				</nav>
+				<div class="field">
+					<label class="label">add player</label>
+					<div class="control has-icons-left has-icons-right">
+						<input class="input" name="new-player" id="new-player" type="text" placeholder="player's name">
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="column container has-text-centered is-fluid">
+				<h1 class="title is-3">game</h1>
+				<div id="messages"></div>
+				<hr />
+				<div id="active-qrcode"></div>
+				<button class="button" id="begin-game">begin game</button>
+				<button class="button" id="next-player">next player</button>
+				<h1 class="title is-4" id="current-player-shown"></h1>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+		<script type="text/javascript" src="master.js"></script>
+	</body>
+</html>

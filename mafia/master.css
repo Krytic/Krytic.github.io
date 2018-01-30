@@ -1,0 +1,7 @@
+div[data-player] {
+	display:none;
+}
+
+#next-player {
+	visibility: hidden;
+}
