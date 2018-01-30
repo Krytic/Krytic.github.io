@@ -112,7 +112,7 @@ $(document).ready(function(){
 
 		console.log(name + " is " + role);
 
-		url = window.location.hostname + "/role.html?name=" + player_list[name] + "&role=" + role;
+		url = window.location.hostname + "/role.html?name=" + name + "&role=" + role;
 		$("#active-qrcode").val("");
 		$("#active-qrcode").qrcode(url);
 		$("#current-player-shown").val(name); 
