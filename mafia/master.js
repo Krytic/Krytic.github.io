@@ -112,10 +112,15 @@ $(document).ready(function(){
 
 		console.log(name + " is " + role);
 
-		url = window.location.hostname + "/role.html?name=" + name + "&role=" + role;
+		pathname = window.location.pathname.split("/");
+		pathname.pop();
+		pathname = pathname.join("/");
+		console.log(pathname);
+
+		url = window.location.hostname + pathname + "/role.html?name=" + name + "&role=" + role;
 		$("#active-qrcode").val("");
 		$("#active-qrcode").qrcode(url);
-		$("#current-player-shown").val(name); 
+		$("#current-player-shown").val(name);
 
 		showing_player++;
 	});
