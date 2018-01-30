@@ -63,14 +63,9 @@ $(document).ready(function(){
 			</article>`);
 	}
 
-	add_player("sean");
-	add_player("john");
-	add_player("dave");
-	add_player("ryan");
-
 	$("[data-kill]").on("click", function(){
 		remove_player($(this).data("kill"));
-	})
+	});
 
 	$('#new-player').on('keypress', function (e) {
 		if(e.which === 13){
@@ -124,8 +119,6 @@ $(document).ready(function(){
 				player_list[key] = roles[i];
 				i++;
 			}
-
-			console.log(player_list);
 
 			$("#begin-game").css({"display": "none"});
 			$("#next-player").css({"visibility": "visible"});
