@@ -2,21 +2,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Mafia app</title>
+		<title>Mafia</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" />
 		<link rel="stylesheet" href="master.css" />
+
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" href="favicon.ico" />
 	</head>
 	<body>
-		<section class="hero is-primary">
+		<section class="hero has-text-centered is-primary">
 			<div class="hero-body">
 				<div class="container">
-					<h1 class="title">
+					<h1 class="title game-title">
 						Mafia
 					</h1>
 					<h2 class="subtitle">
-						Online Game Controller
+						the premiere mafia game controller
 					</h2>
 				</div>
 			</div>
@@ -41,15 +45,16 @@
 						</span>
 					</div>
 				</div>
+				<hr />
+				<button class="button is-dark is-large is-fullwidth" id="begin-game">begin game</button>
 			</div>
-			<div class="column container has-text-centered is-fluid">
-				<h1 class="title is-3">game</h1>
+			<div class="column container has-text-centered is-fluid" id="game_panel">
 				<div id="messages"></div>
 				<hr />
 				<div id="active-qrcode"></div>
-				<button class="button" id="begin-game">begin game</button>
-				<button class="button" id="next-player">next player</button>
+				<br />
 				<h1 class="title is-4" id="current-player-shown"></h1>
+				<button class="button" id="next-player">next player</button>
 			</div>
 		</div>
 
