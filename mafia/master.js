@@ -1,14 +1,71 @@
 $(document).ready(function(){
 	player_list = {};
 
+	// not used for anything demanding security. Only used to generate
+	// the URLs for saved games. I'm not an idiot.
+	// WARNING: IF YOU CHANGE THIS EVERY GAME EVER CREATED WILL BE FUNDAMENTALLY
+	// ALTERED. ONLY FOR USE BY FUCKING MANIACS.
+	MASTER_ENCRYPTION_KEY = "damir_is_god";
+
+	/**
+	Utiliy functions
+	*/
+	function copyTextToClipboard(text) {
+		// copies the variable text to the clipboard via a janky hack.
+		var textArea = document.createElement("textarea");
+
+		textArea.style.position = 'fixed';
+		textArea.style.top = 0;
+		textArea.style.left = 0;
+		textArea.style.width = '2em';
+		textArea.style.height = '2em';
+		textArea.style.padding = 0;
+		textArea.style.border = 'none';
+		textArea.style.outline = 'none';
+		textArea.style.boxShadow = 'none';
+		textArea.style.background = 'transparent';
+
+
+		textArea.value = text;
+
+		document.body.appendChild(textArea);
+
+		textArea.select();
+
+		try {
+			var successful = document.execCommand('copy');
+			var msg = successful ? 'successful' : 'unsuccessful';
+			console.log('Copying ' + text + ' command was ' + msg);
+		} catch (err) {
+			console.log('Oops, unable to copy');
+		}
+
+		document.body.removeChild(textArea);
+	}
+
+	function getParameterByName(name, url) {
+		// retrieves a parameter from the query string by name
+		// e.g. getParameterByName("foo", "index.html/?foo=bar") returns "bar".
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
 	function win(alignment) {
+		// determines who has won the game
 		mode = (alignment == "Mafia" ? "danger": "success")
 		show_message(mode, "Winner!", alignment + " have won the game!");
 		$("[data-kill]").css({"display": "none"});
 	}
 
 	function remove_player(name) {
+		// removes a player from the game
 		role = player_list[name];
+		delete player_list[name];
 
 		$("[data-player=" + name + "]").slideUp(1000);
 
@@ -104,6 +161,22 @@ $(document).ready(function(){
             $(this).focus();
         }
     });
+
+	if(getParameterByName("pl") != null) {
+		pl = XORCipher.decode(MASTER_ENCRYPTION_KEY, getParameterByName("pl"));
+		pls = pl.split(",");
+		pls.map(add_player);
+	}
+
+	$("#get-url").on("click", function(e){
+		querystr = XORCipher.encode(MASTER_ENCRYPTION_KEY, Object.keys(player_list).join(","));
+		url_str = construct_url("") + "/?pl=" + querystr;
+		copyTextToClipboard(url_str);
+		$('.toast').addClass('on');
+		setTimeout(function(){
+			$('.toast').removeClass("on");;
+		}, 3000);
+	});
 
 	$("#begin-game").on("click", function(e){
 		players = Object.keys(player_list).length;
