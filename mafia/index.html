@@ -13,14 +13,14 @@
 		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 	</head>
 	<body>
-		<section class="hero has-text-centered is-primary">
+		<section class="hero has-text-centered is-primary" id="header">
 			<div class="hero-body">
 				<div class="container">
 					<h1 class="title game-title">
 						Mafia
 					</h1>
 					<h2 class="subtitle">
-						the premiere mafia game controller
+						the premier mafia game controller
 					</h2>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 						<em>no players yet</em>
 					</div>
 				</nav>
-				<div class="field">
+				<div class="field" id="add-player-box">
 					<label class="label">add player</label>
 					<div class="control has-icons-left has-icons-right">
 						<input class="input" name="new-player" id="new-player" type="text" placeholder="player's name">
@@ -47,14 +47,18 @@
 				</div>
 				<hr />
 				<button class="button is-dark is-large is-fullwidth" id="begin-game">begin game</button>
+				<button class="button is-primary is-large is-fullwidth" id="next-player">show next player</button>
+				<h1 class="title is-2" id="dead-players-title"></h1>
+				<div id="dead-players-qrcode"></div>
 			</div>
 			<div class="column container has-text-centered is-fluid" id="game_panel">
-				<div id="messages"></div>
+				<div id="messages"><h1 class="title is-1 game-title">game guide</h1></div>
 				<hr />
-				<div id="active-qrcode"></div>
+				<div id="active-qrcode">
+					Add at least <strong>4</strong> players to the game. Players learn their role by, in order of being added, scanning a QR Code shown on their phones. The roles are Mafia, Sheriff, Nurse, Town. There are <code>min(3, floor(n/3))</code> mafia at a time (where n is the number of players). Each player MUST have a unique name (if you have two Doug's, for example, use their last initials as well, maybe Doug A. and Doug S.)
+				</div>
 				<br />
 				<h1 class="title is-4" id="current-player-shown"></h1>
-				<button class="button" id="next-player">next player</button>
 			</div>
 		</div>
 

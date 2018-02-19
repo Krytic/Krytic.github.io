@@ -27,6 +27,13 @@ $(document).ready(function(){
 		}
 	}
 
+	function construct_url(file) {
+		pathname = window.location.pathname.split("/");
+		pathname.pop();
+		pathname = pathname.join("/");
+		return (window.location.hostname + pathname + file);
+	}
+
 	function shuffle(array) {
 		var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -43,9 +50,15 @@ $(document).ready(function(){
 		return array;
 	}
 
-	add_player("robert");
-
 	function add_player(name) {
+		if (name == "") {
+			return;
+		}
+
+		if (name in player_list) {
+			return;
+		}
+
 		$("#no-players").remove();
 
 		$("#playerlist").append('<div class="panel-block" data-player="' + name + '">' + name + '<a class="is-pulled-right" data-kill="' + name + '">lynch / kill</a></div>');
@@ -73,6 +86,11 @@ $(document).ready(function(){
 	$('#new-player').on('keypress', function (e) {
 		if(e.which === 13){
 
+			if($(this).val() == "") {
+				$("#begin-game").click();
+				return;
+			}
+
             //Disable textbox to prevent multiple submit
             $(this).attr("disabled", "disabled");
 
@@ -91,6 +109,7 @@ $(document).ready(function(){
 		players = Object.keys(player_list).length;
 		showing_player = 0;
 		if(players > 3) {
+			$("#add-player-box").remove();
 			mafioso = Math.min(Math.floor(players / 3), 3);
 			nurse = 1;
 			sheriff = 1;
@@ -137,18 +156,15 @@ $(document).ready(function(){
 			$("#next-player").css({"display": "none"});
 			$("#active-qrcode").css({"display": "none"});
 			$("#current-player-shown").css({"display": "none"});
-			show_message("primary", "The game is now running!", "Good Luck and Lynch Well!")
+
+			show_message("primary", "The game is now running!", "Good Luck and Lynch Well!");
 		}
 
 		e.preventDefault();
 		name = Object.keys(player_list)[showing_player];
 		role = player_list[name];
 
-		pathname = window.location.pathname.split("/");
-		pathname.pop();
-		pathname = pathname.join("/");
-
-		url = window.location.hostname + pathname + "/role.html?name=" + name + "&role=" + role;
+		url = construct_url("/role.html?name=" + name + "&role=" + role);
 		$("#active-qrcode").empty().qrcode(url);
 
 		document.getElementById('current-player-shown').innerHTML = name;
