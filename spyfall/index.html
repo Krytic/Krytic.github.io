@@ -2,83 +2,65 @@
 <html>
 	<head>
 		<title>Spyfall</title>
-		<link rel="stylesheet" href="bootstrap.min.css" />
-		<link href="bootstrap-toggle.min.css" rel="stylesheet">
-		<style type="text/css">
-			#role {
-				font-weight: bold;
-			}
-		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+		<link rel="stylesheet" href="master.css" />
 	</head>
 	<body>
-		<div class="jumbotron">
-			<div class="container">
-				<h1 class="text-center">spyfall</h1>
+		<section class="hero is-small is-info is-bold">
+			<div class="hero-body">
+				<div class="container">
+					<h1 class="title exo">
+						Spyfall
+					</h1>
+					<h2 class="subtitle exo">
+						A game of mystery and intrigue
+					</h2>
+				</div>
+			</div>
+		</section>
+		<br />	
+		<div class="container is-fullhd">
+			<div class="columns">
+				<div class="column is-3">
+					<h4 class="has-text-centered is-4 title">Controls</h4>
+					<nav class="panel" id="playerlist">
+						<p class="panel-heading">
+							players
+						</p>
+						<div class="panel-block" id="no-players">
+							no players yet
+						</div>
+					</nav>
+					<div class="field" id="add-player-box">
+						<label class="label">add player</label>
+						<div class="control has-icons-left has-icons-right">
+							<input class="input" name="new-player" id="new-player" type="text" placeholder="player's name">
+							<span class="icon is-small is-left">
+								<i class="fas fa-user"></i>
+							</span>
+						</div>
+					</div>
+					<div id="controls">
+						<hr />
+						<button class="button is-dark is-large is-fullwidth" id="begin-game" style="margin-bottom: 20px;">begin game</button>
+						<button class="button is-info is-large is-fullwidth" id="get-url" style="margin-bottom: 20px;">save state</button>
+						<button class="button is-primary is-large is-fullwidth" style="visibility: hidden;" id="next-player">show next player</button>
+					</div>
+				</div>
+				<div class="column is-9">
+					<div id="messages"></div>
+					<h1 class="title is-2 has-text-centered" id="current-player-shown">Spyfall</h1>
+					<div class="notification is-primary has-text-centered" id="location">The location will be displayed here...</div>
+				</div>
 			</div>
 		</div>
-		<div id="savearea" class="hidden">&nbsp;</div>
-		<div class="container" id="playarea">
-			<h2 class="text-center text-muted">players</h2>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="connor" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Connor
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="frazer" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Frazer
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="girish" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Girish
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="hunter" data-toggle="toggle" data-on="playing" data-off="not playing">&nbsp;
-					Hunter
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="pierce" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Pierce
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="ryan" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Ryan
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="scott" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Scott
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="sean" data-toggle="toggle" checked data-on="playing" data-off="not playing">&nbsp;
-					Sean
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" name="frank" data-toggle="toggle" data-on="playing" data-off="not playing">&nbsp;
-					Frank
-				</label>
-			</div>
-			<button class="btn btn-block btn-success" id="play">play</button>
-		</div>
+
 		<script type="text/javascript" src="jquery-latest.min.js"></script>
-		<script type="text/javascript" src="bootstrap.min.js"></script>
-		<script type="text/javascript" src="bootstrap-toggle.min.js"></script>
+		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script type="text/javascript" src="strings.js"></script>
+		<script type="text/javascript" src="xor_encode.js"></script>
+		<script type="text/javascript" src="toasts.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>

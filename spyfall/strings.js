@@ -1,4 +1,3 @@
 strings = {
-	reveal: "reveal",
-	
+	reveal: "reveal",	
 };

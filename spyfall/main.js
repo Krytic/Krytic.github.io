@@ -1,79 +1,65 @@
-function fetch_random(obj) {
-	var temp_key, keys = [];
-	for(temp_key in obj) {
-		if(obj.hasOwnProperty(temp_key)) {
-			keys.push(temp_key);
-		}
-	}
-	return keys[Math.floor(Math.random() * keys.length)];
-}
-
-function ucfirst(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function doreveal(i, place, spy, stop) {
-	$("#name").html(ucfirst(people[i]));
-	$("#next").attr("id", "reveal");
-	$("#reveal").html("reveal location / spy")
-	$("#role").html("");
-	$("#reveal").click(function(){
-		if(spy == people[i]) {
-			$("#role").html("you are spy ;-)")
-		}
-		else {
-			$("#role").html(place)
-		}
-
-		$("#reveal").attr("id", "next");
-		$("#next").html("next player");
-		$("#next").click(function(){
-			if(i == stop) {
-				$("#playarea").html("<h1 class=\"text-center\">The game is now playing!</h1>"); //<button id=\"reset\" class=\"btn btn-block btn-danger\">Reset</button>");
-				return;
-			} else {
-				doreveal(i+1, place, spy, stop);
-			}
-		});
-	});
-}
-
 $(document).ready(function(){
-	console.log("pls don't look at the source code, frank.");
-	var players = {};
-	var randomNumber = 1;
-	var lastRandomNumber = randomNumber;
-	var place = "";
+	player_list = {};
 
-	$(function() {
-		$("input").each(function() {
-			if($(this).attr("type") == "checkbox" && $(this).attr("data-toggle") == "toggle") {
-				players[$(this).attr("name")] = $(this).is(":checked");
-			}
-		});
-	});
+	// not used for anything demanding security. Only used to generate
+	// the URLs for saved games. I'm not an idiot.
+	// WARNING: IF YOU CHANGE THIS EVERY GAME EVER CREATED WILL BE FUNDAMENTALLY
+	// ALTERED. ONLY FOR USE BY FUCKING MANIACS.
+	MASTER_ENCRYPTION_KEY = "damir_is_god";
 
-	$(function() {
-		$("input").change(function() {
-			if($(this).attr("type") == "checkbox" && $(this).attr("data-toggle") == "toggle") {
-				players[$(this).attr("name")] = $(this).is(":checked");
-			}
-		});
-	});
+	bg = "is-primary" // set default background for location banner
 
-	$("#play").click(function(){
-		player_count = 0;
-		for (var key in players) {
-			if (players.hasOwnProperty(key)) {
-				if(players[key] == false) {
-					delete players[key]
-				}
-				else {
-					++player_count;
-				}
-			}
+	/**
+	Utiliy functions
+	*/
+	function copyTextToClipboard(text) {
+		// copies the variable text to the clipboard via a janky hack.
+		var textArea = document.createElement("textarea");
+
+		textArea.style.position = 'fixed';
+		textArea.style.top = 0;
+		textArea.style.left = 0;
+		textArea.style.width = '2em';
+		textArea.style.height = '2em';
+		textArea.style.padding = 0;
+		textArea.style.border = 'none';
+		textArea.style.outline = 'none';
+		textArea.style.boxShadow = 'none';
+		textArea.style.background = 'transparent';
+
+
+		textArea.value = text;
+
+		document.body.appendChild(textArea);
+
+		textArea.select();
+
+		try {
+			var successful = document.execCommand('copy');
+			var msg = successful ? 'successful' : 'unsuccessful';
+			console.log('Copying ' + text + ' command was ' + msg);
+		} catch (err) {
+			console.log('Oops, unable to copy');
 		}
 
+		document.body.removeChild(textArea);
+	}
+
+	function getParameterByName(name, url) {
+		// retrieves a parameter from the query string by name
+		// e.g. getParameterByName("foo", "index.html/?foo=bar") returns "bar".
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
+	function select_location() {
+		var randomNumber = 1;
+		var lastRandomNumber = randomNumber;
 		$.ajax({url: 'locations.txt', async: false}).done(function(content) {
 			lines = content.replace(/\r\n|\r/g, '\n').trim().split('\n');
 			if (lines && lines.length) {
@@ -86,30 +72,169 @@ $(document).ready(function(){
 			}
 		});
 
-		spy = fetch_random(players);
-		$("#savearea").html($("#playarea").html());
-		$("#playarea").html("<h3 id=\"name\" class=\"text-center\"></h3><br /><p class=\"text-bold text-center lead\" id=\"role\"></p><br /><button id=\"reveal\" class=\"btn btn-info center-block\">reveal location / spy</button>");
-		people = [];
-		for (var key in players) {
-			if (players.hasOwnProperty(key)) {
-				people.push(key);
-			}
-		}
+		return place;
+	}
 
-		doreveal(0, place, spy, player_count-1);
-		
-		place = "";
+	/**
+	 * End of utility functions
+	 */
 
-		$("#reset").click(function(){
-			console.log("click me harder daddy")
-			$("#playarea").html($("#savearea").html());
-			$(function() {
-				$("input").each(function() {
-					if($(this).attr("type") == "checkbox" && $(this).attr("data-toggle") == "toggle") {
-						players[$(this).attr("name")] = $(this).is(":checked");
-					}
-				});
-			});
-		});
+	 function construct_url(file) {
+	 	pathname = window.location.pathname.split("/");
+	 	pathname.pop();
+	 	pathname = pathname.join("/");
+	 	return (window.location.hostname + pathname + file);
+	 }
+
+	 function shuffle(array) {
+	 	var currentIndex = array.length, temporaryValue, randomIndex;
+
+	 	while (0 !== currentIndex) {
+
+	 		randomIndex = Math.floor(Math.random() * currentIndex);
+	 		currentIndex -= 1;
+
+	 		temporaryValue = array[currentIndex];
+	 		array[currentIndex] = array[randomIndex];
+	 		array[randomIndex] = temporaryValue;
+	 	}
+
+	 	return array;
+	 }
+
+	 function add_player(name) {
+	 	if (name == "") {
+	 		return;
+	 	}
+
+	 	if (name in player_list) {
+	 		return;
+	 	}
+
+	 	$("#no-players").remove();
+
+	 	$("#playerlist").append('<div class="panel-block" data-player="' + name + '">' + name + '</div>');
+
+	 	$('[data-player="' + name + '"]').slideDown(1000);
+
+	 	player_list[name] = "";
+	 }
+
+	 function show_message(type, title, body) {
+	 	$("#messages").html(`<article class="message is-` + type + `">
+	 		<div class="message-header">
+	 		<p><strong>` + title + `</strong></p>
+	 		</div>
+	 		<div class="message-body">
+	 		` + body + `
+	 		</div>
+	 		</article>`);
+	 }
+
+	 $('#new-player').on('keypress', function (e) {
+	 	if(e.which === 13){
+
+	 		if($(this).val() == "") {
+	 			$("#begin-game").click();
+	 			return;
+	 		}
+
+            //Disable textbox to prevent multiple submit
+            $(this).attr("disabled", "disabled");
+
+            add_player($(this).val());
+
+            $(this).val("");
+
+            //Enable the textbox again if needed.
+            $(this).removeAttr("disabled");
+
+            $(this).focus();
+        }
+    });
+
+	 if(getParameterByName("pl") != null) {
+	 	pl = XORCipher.decode(MASTER_ENCRYPTION_KEY, getParameterByName("pl"));
+	 	pls = pl.split(",");
+	 	pls.map(add_player);
+	 }
+
+	 $("#get-url").on("click", function(e){
+	 	querystr = XORCipher.encode(MASTER_ENCRYPTION_KEY, Object.keys(player_list).join(","));
+	 	url_str = construct_url("") + "/?pl=" + querystr;
+	 	copyTextToClipboard(url_str);
+	 	$('.toast').addClass('on');
+	 	setTimeout(function(){
+	 		$('.toast').removeClass("on");;
+	 	}, 3000);
+	 });
+
+	 $("#begin-game").on("click", function(e){
+	 	players = Object.keys(player_list).length;
+	 	showing_player = 0;
+	 	if(players > 3) {
+	 		$("#add-player-box").remove();
+
+	 		i = 0
+
+	 		spy_index = Math.floor(Math.random() * players);
+
+	 		for (var key in player_list) {
+	 			role = 'agent';
+	 			if(i == spy_index) {
+	 				role = 'spy';
+	 				console.log("[game] " + key + " is the spy")
+	 			}
+	 			player_list[key] = role;
+	 			i++;
+	 		}
+
+	 		$("#begin-game").remove();
+	 		$("#next-player").css({"visibility": "visible"});
+	 		$("#get-url").remove();
+	 	} else {
+	 		show_message("danger", "Error - Not enough players", "Spyfall requires at least <strong>4</strong> players to run. You are trying to play with <strong>" + players + "</strong>. Please add some more players and try again.");
+	 	}
+	 });
+
+	 place_to_guess = select_location();
+	 console.log("[game] " + place_to_guess + " selected as the location");
+
+	 $("#next-player").on("click",function(e){
+	 	if (showing_player == Object.keys(player_list).length) {
+	 		show_message("primary", "The game is now running!", "May the odds be <em>ever</em> in your favor!");
+	 		$("#controls").remove();
+	 		$("#current-player-shown").remove();
+	 		$("#location").remove();
+	 		return;
+	 	}
+
+	 	e.preventDefault();
+	 	name = Object.keys(player_list)[showing_player];
+	 	role = player_list[name];
+
+	 	$("#location").removeClass(bg);
+	 	$("#location").addClass('is-primary');
+
+	 	document.getElementById('current-player-shown').innerHTML = "Current player: " + name;
+	 	document.getElementById('location').innerHTML = "";
+
+	 	setTimeout(function(){
+	 		bg = "is-primary";
+	 		text = place_to_guess;
+
+	 		if(role == "spy") {
+	 			bg = "is-danger";
+	 			text = "You are SPY!";
+	 		}
+
+	 		$("#location").removeClass("is-primary");
+	 		$("#location").removeClass("is-danger");
+	 		$("#location").addClass(bg);
+
+	 		document.getElementById('location').innerHTML = '<h1 class="title is-1 has-text-centered">' + text + '</h1>'
+	 	}, 1000);
+
+	 	showing_player++;
+	 });
 	});
-});
