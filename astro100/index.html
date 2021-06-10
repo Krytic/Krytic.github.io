@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" id="main_body">
+  <head>
+    <title>ASTRO 100 Lab Finder</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <style type="text/css">
+      .expt1 {
+        background: #0C6291;
+      }
+      .expt2 {
+        background: #F71735;
+      }
+      .expt3 {
+        background: #41EAD4;
+      }
+      .expt4 {
+        background: #F2E863;
+      }
+      .expt5 {
+        background: #FF9F1C;
+      }
+      .error {
+        margin-top: 150px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var headers =["name", "upi", "labgroup", "expt", "doingtoday"];//change this to fit the headers in the spreadsheet
+
+      // ID of the Google Spreadsheet
+      var spreadsheetID = "1G34IjU3CaXEepiIwVkYGYZrOKLIzhgANnaonDHe6WGQ";
+
+      // ya this is not the cleanest code I know, don't @ me pls
+
+      // Make sure it is published
+      var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+
+      var students = [];
+
+      $.getJSON(url, function(json)
+      {
+        var placeholder = document.getElementById("placeholder");
+        var data = json.feed.entry;
+        for(var r=0; r<data.length; r++)
+        {
+          var name = data[r]["gsx$"+headers[0]]["$t"];
+          var upi = data[r]["gsx$"+headers[1]]["$t"];
+          var grp = data[r]["gsx$"+headers[2]]["$t"];
+          var lab = data[r]["gsx$"+headers[3]]["$t"];
+          var today = data[r]["gsx$"+headers[4]]["$t"];
+
+          var student = [];
+          student['name'] = name;
+          student['lab'] = lab;
+          student['today'] = today;
+
+          students[upi] = student;
+        }
+      });
+
+      $(document).ready(function(){
+        $("#student-upi").keyup(function(){
+          var str = $(this).val();
+
+          $("#expt_details").removeClass("error");
+          $("#main_body").removeClass();
+
+          if(students.hasOwnProperty(str)) {
+            lab = students[str]['lab'];
+            if(lab == "no") {
+              document.getElementById("expt_details").innerHTML = '<span class="icon is-large"><i class="fas fa-times fa-10x"></i></span><br />Today is not your lab day.';
+              $("#expt_details").addClass("error");
+            }
+            else {
+              document.getElementById("expt_details").innerHTML = '<h1 class="heading is-1">Experiment</h1><div id="placeholder" class="title is-1">' + lab + '</div>';
+              $("#main_body").addClass("expt" + lab);
+            }
+          }
+          else {
+            document.getElementById("expt_details").innerHTML = "";
+          }
+        });
+      });
+
+    </script>
+
+  </head>
+
+  <body>
+    <section class="hero is-info">
+      <div class="hero-body">
+        <p class="title">
+          ASTRO 100 Labs
+        </p>
+        <p class="subtitle">
+          Lab Finder
+        </p>
+      </div>
+    </section>
+
+    <div class="container container-fluid has-text-centered">
+      <div class="field has-addons has-addons-centered block">
+        <p class="control">
+          <a class="button is-static">
+            Enter your UPI:
+          </a>
+        </p>
+        <p class="control">
+          <input type="text" class="input" name="student-upi" id="student-upi" value="" placeholder="jbon007">
+        </p>
+      </div>
+      <div class="block" id="expt_details" />
+    </div>
+  </body>
+</html>
