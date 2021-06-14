@@ -1,206 +1,272 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sean Richards &mdash; the Ordinary Starman</title>
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Sean Richards &middot; OrdinaryStarman</title>
-		<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
-		<style type="text/css">
-			.va {
-				display: flex;
-				align-items: center;
-			}
+    <!-- favicon -->
+    <link href="favicon.png" rel=icon>
 
-			.hero,
-			.cta {
-				background: url(data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22noise%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.875%22%20result%3D%22noise%22%20%2F%3E%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.4296875%200%22%20%2F%3E%3C%2Ffilter%3E%3Crect%20filter%3D%22url%28%23noise%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22512%22%20height%3D%22512%22%20fill%3D%22transparent%22%20opacity%3D%221%22%20%2F%3E%3C%2Fsvg%3E), linear-gradient(52deg, #42475C 0%, #20222E 71%);
-			}
+    <!-- web-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
 
-			.cta {
-				height: 500px;
-				border-top: 10px solid turquoise;
-			}
+    <!-- font-awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
 
-			footer {
-				color: white;
-				background: rgb(14, 14, 14) !important;
-			}
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-			footer strong {
-				color: turquoise;
-			}
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
 
-			footer a {
-				color: turquoise;
-			}
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
 
-			.title {
-				color: white;
-				font-weight: 800;
-				font-size: 4rem;
-				font-family: 'Nunito Sans', sans-serif;
-				text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
-			}
+        <div class="columns-block">
+            <div class="left-col-block blocks">
+                <header class="header">
+                    <div class="content text-center">
+                        <h1>Hi, I'm Sean Richards!</h1>
 
-			.subtitle {
-				color: white;
-				font-size: 1.2rem;
-				text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
-			}
+                        <p class="lead">Research Assistant | PhD Student</p>
+                        <ul class="social-icon">
+                            <li><a href="https://twitter.com/OrdinaryStarman"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/ordinarystarman/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="profile-img"></div>
+                </header>
+                <!-- .header-->
+            </div>
 
-			hr.content-divider {
-				max-width: 75px;
-				height: 5px;
-			}
 
-			#parallax-1 {
-				background: url(assets/student.jpg);
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-				border-top: 10px solid coral;
-			}
+            <div class="right-col-block blocks">
+                <section class="intro section-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>What I am all about.</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p>
+                                    I work with stellar models &mdash; primarily the <a href="https://bpass.auckland.ac.nz/">BPASS</a> models and the <a href="https://people.ast.cam.ac.uk/~stars/">STARS</a> code. I study compact remnant population synthesis, and the nature of the natal supernova kick. I use the observed merger rate densities from LIGO and VIRGO to constrain values of the kick parameters &mdash; &alpha; and &beta; for the Bray kick, and &sigma; for the Hobbs kick.
+                                </p>
 
-			#parallax-1 hr {
-				background: coral;
-			}
+                                <p>
+                                    I also have a strong interest in computational astrophysics. My background in Computer Science has equipped me to deal with large-scale stellar modelling, and I am currently developing the <a href="https://bpass.auckland.ac.nz/">BPASS</a> v3 data release.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-			#parallax-2 {
-				background: url(assets/background.jpg);
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-				border-top: 10px solid yellow;
-			}
 
-			#parallax-2 hr {
-				background: yellow;
-			}
+                <section class="expertise-wrapper section-wrapper gray-bg">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>Expertise</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .row -->
 
-			#parallax-3 {
-				background: url(assets/scicomm.jpg);
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-				border-top: 10px solid hotpink;
-			}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="expertise-item">
+                                    <h3>Bachelor of Science</h3>
 
-			#parallax-3 hr {
-				background: hotpink;
-			}
+                                    <p>
+                                        Majoring in Computer Science (algorithmics &amp; computability focus) and Physics (astrophysics focus)
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="expertise-item">
+                                    <h3>Postgraduate Diploma in Science</h3>
 
-			.label {
-				color: white;
-			}
+                                    <p>
+                                        Working with <a href="https://space.auckland.ac.nz/">Te P&umacr;naha &Amacr;tea</a> to develop the University of Auckland Ground Station One.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .row -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="expertise-item">
+                                    <h3>Master of Science</h3>
 
-			input {
-				background: transparent !important;
-				border: 1px solid turquoise !important;
-				color: white !important;
-			}
+                                    <p>
+                                        Working with Associate Professor Jan Eldridge (Head of Physics) to determine the nature of the natal supernova kick.
+                                    </p>
+                                </div>
+                            </div>
 
-			input::placeholder {
-				color: white !important;
-			}
+                            <div class="col-md-6">
+                                <div class="expertise-item">
+                                    <h3>PhD Student</h3>
 
-			a {
-				box-shadow: none;
-			}
+                                    <p>
+                                        Working with Associate Professor Jan Eldridge and Dr H&eacute;lo&iuml;se Stevance to further efficiently model the full physics of binary star systems.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .row -->
+                    </div>
+                    <!--.container-fluid-->
+                </section>
+                <!-- .expertise-wrapper -->
 
-		</style>
-	</head>
+                <section class="section-wrapper skills-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2>Skills</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!--.row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="progress-wrapper">
 
-	<body>
-		<section class="hero is-medium">
-			<div class="columns">
-				<div class="column is-one-fifth">
-					<img src="https://pbs.twimg.com/profile_images/1187975680442527745/4hnEaszY_400x400.jpg" style="height: 100%" class="is-pulled-right" />
-				</div>
-				<div class="hero-body column is-four-fifths">
-					<div class="container">
-						<h1 class="title is-1 ">Sean Richards</h1>
-						<h2 class="subtitle">MSc Student &middot; Astrophysicist &middot; Aspiring Science Communicator</h2>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="parallax-1" class="hero is-large ">
-			<div class="hero-body">
-				<div class="container">
-					<div class="columns">
-						<div class="column is-6 is-offset-6">
-							<h1 class="title is-1 ">MSc Student</h1>
-							<hr class="content-divider">
-							<h2 class="subtitle">As an undergrad, I studied Computer Science &amp; Physics at the University of Auckland. In Computer Science, I studied computability theory, algorithmics, and the fundamentals of how computers work. In Physics, I studied astronomy &amp; astrophysics, with a light<!-- pun intended --> amount of photonics and quantum mechanics.</h2>
-							<hr class="content-divider">
-							<h2 class="subtitle">Now, as an MSc Student, I'm studying binary star systems using <a href="https://bpass.auckland.ac.nz/">BPASS</a>, and specifically NS-NS mergers as progenitors for gravitational wave transients.</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="parallax-2" class="hero is-large ">
-			<div class="hero-body">
-				<div class="container">
-					<div class="columns">
-						<div class="column is-6">
-							<h1 class="title is-1 ">Astrophysicist</h1>
-							<hr class="content-divider">
-							<h2 class="subtitle">I studied a Postgraduate Diploma in Science at Te Punaha &Amacr;tea &mdash; Auckland Space Institute, producing the dissertation "University of Auckland Ground Station One". This involved upgrading the University's satellite ground station to serve as a viable drop-in replacement for tracking the CubeSat mission <a href="https://space.skyrocket.de/doc_sdat/quaketec.htm">APSS-I</a>.</h2>
-							<hr class="content-divider">
-							<h2 class="subtitle">As a MSc by research student, I am examining binary star populations to discover the origins of gravitational wave transient events. I am looking at what factors of a system influence the event rates of transients, and probing the final moments of systems prior to merger.</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="parallax-3" class="hero is-large ">
-			<div class="hero-body">
-				<div class="container">
-					<div class="columns">
-						<div class="column is-6 is-offset-6">
-							<h1 class="title is-1 ">Aspiring Science Communicator</h1>
-							<hr class="content-divider">
-							<h2 class="subtitle">I am interested in bringing science &mdash; and in particular, astronomy &mdash; to the masses. Astronomy is one of the oldest sciences, and humans have harbored a deep fascination with the stars since time immemorial. In the words of Carl Sagan, <em>it has been said that astronomy is a humbling and character-building experience</em>. That is, without a doubt, 100% true.</h2>
-							<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="cta va">
-			<div class="container">
-				<div>
-					<h1 class="title is-1 ">Say hi!</h1>
-					<hr class="content-divider">
-					<div class="field has-addons">
-						<p class="control"><a href="https://twitter.com/OrdinaryStarman" class="button is-info is-medium"><span class="icon"><i class="fa fa-twitter"></i></span><span>@OrdinaryStarman</span></a></p>
-						<p class="control"><a class="button is-primary is-medium"><span class="icon"><i class="fa fa-twitter"></i></span><span id="semprotvic"></span></a></p>
-						<p class="control"><a href="SeanRichardsCV.pdf" class="button is-success is-medium"><span class="icon"><i class="fa fa-file"></i></span><span>My CV</span></a></p>
-					</div>
-				</div>
-			</div>
+                                    <div class="progress-item">
+                                        <span class="progress-title">Working with large-scale data</span>
 
-		</section>
-		<footer class="footer">
-			<div class="content has-text-centered">
-				<p>
-					Website built with <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-					<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-					is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>. Images by <a href="https://unsplash.com/">Unsplash</a>.
-				</p>
-			</div>
-		</footer>
-		<script language="JavaScript">
-			var _0x32c9=['mail','to:','strip','gmail','innerHTML','parentElement','getElementById','semprotvic','seanrichardsakl','href'];(function(_0x141943,_0x32c983){var _0x12c77c=function(_0x1303c8){while(--_0x1303c8){_0x141943['push'](_0x141943['shift']());}};_0x12c77c(++_0x32c983);}(_0x32c9,0xb8));var _0x12c7=function(_0x141943,_0x32c983){_0x141943=_0x141943-0x0;var _0x12c77c=_0x32c9[_0x141943];return _0x12c77c;};function semprot(_0x4a4793,_0x1302b6,_0x58684b,_0x448e08){var _0x223e5a=_0x4a4793+'@'+_0x1302b6+'.'+_0x58684b;if(_0x448e08!=_0x12c7('0x8')){_0x223e5a=_0x12c7('0x6')+_0x12c7('0x7')+_0x223e5a;}return _0x223e5a;}document[_0x12c7('0x2')](_0x12c7('0x3'))[_0x12c7('0x0')]=semprot(_0x12c7('0x4'),_0x12c7('0x9'),'com','strip');document[_0x12c7('0x2')]('semprotvic')[_0x12c7('0x1')][_0x12c7('0x5')]=semprot(_0x12c7('0x4'),_0x12c7('0x9'),'com');
-		</script>
-	</body>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="62" aria-valuemin="0"
+                                            aria-valuemax="100" style="width: 62%"><span class="progress-percent"> 62%</span>
+                                        </div>
+                                    </div>
+                                    <!-- .progress -->
+                                </div>
+                                <!-- .skill-progress -->
 
+
+                                <div class="progress-item">
+                                    <span class="progress-title">Project Management</span>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                        aria-valuemax="100" style="width: 90%"><span class="progress-percent"> 90%</span>
+                                    </div>
+                                </div>
+                                <!-- /.progress -->
+                            </div>
+                            <!-- /.skill-progress -->
+
+
+                            <div class="progress-item">
+                                <span class="progress-title">Writing</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: 75%;"><span class="progress-percent"> 75%</span>
+                                </div>
+                            </div>
+                            <!-- /.progress -->
+                        </div>
+                        <!-- /.skill-progress -->
+
+                        <div class="progress-item">
+                            <span class="progress-title">Public Speaking</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 55%;"><span class="progress-percent"> 55%</span>
+                            </div>
+                        </div>
+                        <!-- /.progress -->
+                    </div>
+                    <!-- /.skill-progress -->
+                </div>
+                <!-- /.progress-wrapper -->
+            </div>
+        </div>
+        <!--.row -->
+    </div>
+    <!-- .container-fluid -->
+</section>
+<!-- .skills-wrapper -->
+
+<section class="section-contact section-wrapper gray-bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>Contact</h2>
+                </div>
+            </div>
+        </div>
+        <!--.row-->
+        <div class="row">
+            <div class="col-md-12">
+                <address>
+                    <strong>Address</strong><br>
+                    38 Princes Street<br />
+                    Auckland Central<br />
+                    Auckland 1010<br />
+                    New Zealand
+                </address>
+
+                <address>
+                    <strong>Email</strong><br>
+                    <a href="mailto:sean.richards@auckland.ac.nz">sean.richards@auckland.ac.nz</a>
+                </address>
+            </div>
+        </div>
+        <!--.row-->
+    </div>
+    <!--.container-fluid-->
+</section>
+<!--.section-contact-->
+
+<footer class="footer">
+    <div class="copyright-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copytext">&copy; 2015 Online CV. All rights reserved | Design By: <a
+                        href="https://themehippo.com">ThemeHippo</a></div>
+                    </div>
+                </div>
+                <!--.row-->
+            </div>
+            <!-- .container-fluid -->
+        </div>
+        <!-- .copyright-section -->
+    </footer>
+    <!-- .footer -->
+</div>
+<!-- .right-col-block -->
+</div>
+<!-- .columns-block -->
+</div>
+<!-- #main-wrapper -->
+
+<!-- jquery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
 </html>
