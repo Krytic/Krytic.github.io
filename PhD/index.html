@@ -11,11 +11,11 @@
             $(document).ready(function(){
                 var x = [];
                 var y = [];
-                $.get('http://cors.io/?http://ordinarystarman.com/PhD/TOC.html', function(data) {
+                $.get('http://ordinarystarman.com/PhD/TOC.html', function(data) {
                     $("#structure").html(data);
                     $("#structure").find(">:first-child").addClass("menu-list");
                 }, 'html');
-                $.get('http://cors.io/?http://ordinarystarman.com/PhD/wc.txt', function(data) {
+                $.get('http://ordinarystarman.com/PhD/wc.txt', function(data) {
                     lines = data.split("\n");
                     for (var i = 0; i < lines.length; i++) {
                         var line = lines[i];
