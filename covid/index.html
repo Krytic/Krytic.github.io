@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>COVID Location of Interest Checker</title>
+
+		<meta charset="utf-8"/>
+
+		<style type="text/css">
+			.unread {
+				background: rgba(255, 204, 0, 0.3);
+			}
+
+			.unread-text {
+				display: inline;
+				color: rgba(255, 204, 0);
+			}
+
+			.lead {
+				font-size: 18pt;
+				font-weight: 100;
+				text-align: center;
+				padding-bottom: 25px;
+			}
+			
+			.banner {
+				background-image: url(stripes.svg);
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: cover;
+				padding-bottom: 1rem;
+				padding-top: 1rem;
+				width: 100%;
+			}
+			
+			.container {
+				padding-top: 50px;
+			}
+
+			table.center {
+			    margin-left:auto; 
+			    margin-right:auto;
+			}
+		</style>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/stupidtable/1.1.3/stupidtable.min.js" integrity="sha512-T2dqwCYHuN8dbqIgYhwdGm+VtfUBecC06wUrciItlLJsteoe07db34cbmp/GZGIrC5/q1xy1V96BuvPiMXnedA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script type="text/javascript">
+			let myStorage = window.localStorage;
+
+			jQuery.ajax({
+				url: "https://raw.githubusercontent.com/minhealthnz/nz-covid-data/main/locations-of-interest/august-2021/locations-of-interest.csv",
+				type: 'get',
+				dataType: 'text',
+				success: function(data) {
+					data = data.replace(/\n\n/, ":");
+					let lines = data.split(/\n{1,2}/);
+					let fields = lines[0].split(',');
+					let output = [];
+					let num_unread = lines.length - 1;
+
+					for(let i = 1; i < lines.length; i++) {
+						if (lines[i] == "") {
+							num_unread = num_unread - 1;
+							continue;
+						}
+						try {
+							csv = $.csv.toArray(lines[i]);
+						} catch {
+							num_unread = num_unread - 1;
+							continue; // probably a line that MOH didn't encode right (continuation of previous line)
+						}
+						let current = csv;
+						let doc = {};
+						let re = /([0-9]{2}\/[0-9]{2}\/[0-9]{2,4})\g/
+
+						for(let j = 0; j < fields.length; j++) {
+							doc[fields[j]] = current[j];
+						}
+
+						let date = current[1].split(" ").slice(-1)[0];
+						doc['Date'] = date;
+
+						classList = "unread";
+						if (localStorage.getItem(doc['id']) == "read") {
+							num_unread = num_unread - 1;
+							classList = "read";
+						}
+
+						if (doc['LAT'] == "NA" || doc['LNG'] == "NA") {
+							maps_link = "unavailable";
+						}
+						else {
+							maps_link = '<a href="https://www.google.com/maps/search/?api=1&query=' + doc['LAT'] + ',' + doc['LNG'] + '" target="_blank">Google Maps</a>'
+						}
+
+						$("#locations").append("<tr class=\"" + classList + "\" id=\"" + doc['id'] + "\"><td>" + doc['Event'] + "</td><td>" + doc['City'] + "</td><td>" + doc['Location'] + "</td><td>" + doc['Start'] + "</td><td>" + doc['End'] + "</td><td>" + maps_link + "</tr>");
+						output.push(doc);
+
+
+						localStorage.setItem(doc['id'], 'read');
+					}
+
+					$("#nums").append("<strong>" + lines.length + "</strong> locations of interest, <strong>" + num_unread + "</strong> new since last visit (highlighted in <p class=\"unread-text\">yellow</p>)");
+
+
+				},
+				error: function(jqXHR, textStatus, errorThrow){
+					console.log("error occured");
+					console.log(textStatus);
+				},
+				complete: function(data) {
+					$("#locations").stupidtable();
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<section class="hero banner has-text-centered">
+			<div class="hero-body">
+				<p class="title">
+					New Zealand COVID-19 Locations of Interest
+				</p>
+				<p class="subtitle">
+					Remembers what you have already seen
+				</p>
+			</div>
+		</section>
+		<div class="container">
+			<p class="lead" id="nums"></p>
+			<table class="table center" id="locations">
+			<thead>
+				<tr><th>Name</th><th>Region</th><th>Address</th><th>Start Time</th><th>End Time</th><th>Google Maps</th></tr>
+			</thead>
+			</table>
+		</div>
+	</body>
+</html>
