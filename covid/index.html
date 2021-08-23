@@ -12,7 +12,7 @@
 
 			.unread-text {
 				display: inline;
-				color: rgba(255, 204, 0);
+				background: rgba(255, 204, 0, 0.3);
 			}
 
 			.lead {
@@ -37,8 +37,8 @@
 			}
 
 			table.center {
-			    margin-left:auto;
-			    margin-right:auto;
+				margin-left:auto;
+				margin-right:auto;
 			}
 		</style>
 
@@ -53,7 +53,8 @@
 				url: "https://raw.githubusercontent.com/minhealthnz/nz-covid-data/main/locations-of-interest/august-2021/locations-of-interest.csv",
 				type: 'get',
 				dataType: 'text',
-				success: function(data) {
+				success: function(data, status, jqXHR) {
+					console.log(jqXHR.getAllResponseHeaders());
 					data = data.replace(/\n\n/, ":");
 					let lines = data.split(/\n{1,2}/);
 					let fields = lines[0].split(',');
@@ -80,7 +81,38 @@
 						}
 
 						let date = current[1].split(" ").slice(-1)[0];
-						doc['Date'] = date;
+						let dateparts = date.split("/");
+						let processed_datestring = "";
+						for(let k = 0; k < 3; k++) {
+							// dateparts[k] = "";
+							if(k < 2) {
+								if(dateparts[k].length < 2){
+									dateparts[k] = "0".concat(dateparts[k]);
+								}
+							}
+							else {
+								if(dateparts[k].length == 2) {
+									dateparts[k] = "20".concat(dateparts[k]);
+								}
+							}
+
+							processed_datestring = processed_datestring.concat(dateparts[k], "/");
+						}
+
+						doc['Date'] = processed_datestring.slice(0, -1);
+
+						let processed_addedstring = "";
+						if(doc['Added'].includes("-")) { // Who in the MOH decided to format some as YYYY-MM-DD??
+							let added_parts = doc['Added'].split(" ")[0].split("-");
+							processed_addedstring = added_parts[2] + "/" + added_parts[1] + "/" + added_parts[0]
+						} else if(doc['Added'].includes("/")) {
+							processed_addedstring = doc['Added'].split(" ")[0];
+						}
+						else {
+							processed_addedstring = "Not Known";
+						}
+
+						doc['Added'] = processed_addedstring;
 
 						classList = "unread";
 						if (localStorage.getItem(doc['id']) == "read") {
@@ -95,14 +127,16 @@
 							maps_link = '<a href="https://www.google.com/maps/search/?api=1&query=' + doc['LAT'] + ',' + doc['LNG'] + '" target="_blank">Google Maps</a>'
 						}
 
-						$("#locations").append("<tr class=\"" + classList + "\" id=\"" + doc['id'] + "\"><td>" + doc['Event'] + "</td><td>" + doc['City'] + "</td><td>" + doc['Location'] + "</td><td>" + doc['Start'] + "</td><td>" + doc['End'] + "</td><td>" + maps_link + "</tr>");
+						$("#locations").append("<tr class=\"" + classList + "\" id=\"" + doc['id'] + "\"><td>" + doc['Event'] + "</td><td>" + doc['Date'] + "</td><td>" + doc['City'] + "</td><td>" + doc['Location'] + "</td><td>" + doc['Start'] + "</td><td>" + doc['End'] + "</td><td>" + maps_link + "<td>" + doc['Added'] + "</td></tr>");
 						output.push(doc);
 
 
 						localStorage.setItem(doc['id'], 'read');
 					}
 
-					$("#nums").append("<strong>" + lines.length + "</strong> locations of interest, <strong>" + num_unread + "</strong> new since last visit (highlighted in <p class=\"unread-text\">yellow</p>)");
+					$("#nums").append("<strong>" + lines.length + "</strong> locations of interest, <strong>" + num_unread + "</strong> new since your last visit (highlighted in <p class=\"unread-text\">yellow</p>)");
+
+					$("#num_results").html(lines.length + " results");
 
 
 				},
@@ -111,7 +145,42 @@
 					console.log(textStatus);
 				},
 				complete: function(data) {
-					$("#locations").stupidtable();
+					// $("#locations").stupidtable();
+
+					var i = 0;
+					$("#locations thead tr th").each(function(){
+						$("#search_by").append("<option value=\"" + i + "\">" + $(this).html() + "</option>");
+						i += 1
+					});
+
+					function process_search() {
+						var input, filter, table, tr, td, i, txtValue;
+						input = $("#search_bar");
+						console.log("Hit");
+						filter = input.val().toUpperCase();
+						tr = $("#locations tr");
+						// Loop through all table rows, and hide those who don't match the search query
+						var num_results = 0;
+						for (i = 0; i < tr.length; i++) {
+							td = tr[i].getElementsByTagName("td")[$("#search_by").val()];
+
+							if (td) {
+						  		txtValue = td.textContent || td.innerText;
+
+						  		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+									num_results += 1;
+				     			} else {
+									tr[i].style.display = "none";
+								}
+							}
+						}
+
+						$("#num_results").html(num_results + " results")
+					}
+
+					$("#search_bar").on('change keyup paste mouseup', process_search);
+					$("#search_by").on('change', process_search);
 				}
 			});
 		</script>
@@ -122,17 +191,39 @@
 				<p class="title">
 					New Zealand COVID-19 Locations of Interest
 				</p>
-				<p class="subtitle">
+				<p class="subtitle" id="lastupdated">
 					Remembers what you have already seen
 				</p>
 			</div>
 		</section>
 		<div class="container">
 			<p class="lead" id="nums"></p>
+
+			<div class="field has-addons has-addons-centered">
+				<p class="control">
+				    <a class="button is-static">Search for...</a>
+				</p>
+				<p class="control">
+					<input class="input" type="text" name="search_bar" id="search_bar" placeholder="Enter search text...">
+				</p>
+				<p class="control">
+				    <a class="button is-static">...in the column...</a>
+				</p>
+				<p class="control">
+					<span class="select">
+						<select id="search_by">
+						</select>
+					</span>
+				</p>
+				<p class="control">
+				    <a class="button is-static" id="num_results"></a>
+				</p>
+			</div>
+
 			<table class="table center" id="locations">
-			<thead>
-				<tr><th>Name</th><th>Region</th><th>Address</th><th>Start Time</th><th>End Time</th><th>Google Maps</th></tr>
-			</thead>
+				<thead>
+					<tr><th>Name</th><th>Date of Exposure</th><th>Region</th><th>Address</th><th>Start Time</th><th>End Time</th><th>Google Maps</th><th>Added by MOH</th></tr>
+				</thead>
 			</table>
 		</div>
 		<footer class="footer">
@@ -141,6 +232,8 @@
 					<strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. Website by <a href="http://ordinarystarman.com/">Sean Richards</a>. Based off of an idea by <a href="https://twitter.com/jsmnndrsn/">@jsmnndrsn</a> and <a href="https://twitter.com/SNJ_nz/">@SNJ_nz</a>.
 					<br />
 					"COVID Stripes" by the <a href="https://covid19.govt.nz/">all-of-Government</a> response group. Not affiliated with any Crown entity otherwise. <a href="https://covid19.govt.nz/covid-19-vaccines/how-to-get-a-covid-19-vaccination/book-your-covid-19-vaccination/">Book your vaccine</a>, and <strong>wear a mask!</strong>
+					<br />
+					<strong>Disclaimer</strong>: This information is pulled from a <a href="https://github.com/minhealthnz/nz-covid-data/tree/main/locations-of-interest/august-2021">Ministry of Health csv file</a>. It may not always be up-to-date when new locations have <em>just</em> been announced. If in doubt - check the <a href="https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-health-advice-public/contact-tracing-covid-19/covid-19-contact-tracing-locations-interest">Ministry of Health</a> website.
 				</p>
 			</div>
 		</footer>
