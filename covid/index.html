@@ -45,7 +45,7 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/stupidtable/1.1.3/stupidtable.min.js" integrity="sha512-T2dqwCYHuN8dbqIgYhwdGm+VtfUBecC06wUrciItlLJsteoe07db34cbmp/GZGIrC5/q1xy1V96BuvPiMXnedA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type="text/javascript">
 			let myStorage = window.localStorage;
 
@@ -54,7 +54,6 @@
 				type: 'get',
 				dataType: 'text',
 				success: function(data, status, jqXHR) {
-					console.log(jqXHR.getAllResponseHeaders());
 					data = data.replace(/\n\n/, ":");
 					let lines = data.split(/\n{1,2}/);
 					let fields = lines[0].split(',');
@@ -81,25 +80,29 @@
 						}
 
 						let date = current[1].split(" ").slice(-1)[0];
-						let dateparts = date.split("/");
-						let processed_datestring = "";
-						for(let k = 0; k < 3; k++) {
-							// dateparts[k] = "";
-							if(k < 2) {
-								if(dateparts[k].length < 2){
-									dateparts[k] = "0".concat(dateparts[k]);
+						if(date.includes("/")) {
+							let dateparts = date.split("/");
+							let processed_datestring = "";
+							for(let k = 0; k < 3; k++) {
+								// dateparts[k] = "";
+								if(k < 2) {
+									if(dateparts[k].length < 2){
+										dateparts[k] = "0".concat(dateparts[k]);
+									}
 								}
-							}
-							else {
-								if(dateparts[k].length == 2) {
-									dateparts[k] = "20".concat(dateparts[k]);
+								else {
+									if(dateparts[k].length == 2) {
+										dateparts[k] = "20".concat(dateparts[k]);
+									}
 								}
+
+								processed_datestring = processed_datestring.concat(dateparts[k], "/");
 							}
 
-							processed_datestring = processed_datestring.concat(dateparts[k], "/");
+							doc['Date'] = processed_datestring.slice(0, -1);
+						} else {
+							doc['Date'] = doc['Start'].split(",")[0];
 						}
-
-						doc['Date'] = processed_datestring.slice(0, -1);
 
 						let processed_addedstring = "";
 						if(doc['Added'].includes("-")) { // Who in the MOH decided to format some as YYYY-MM-DD??
@@ -127,7 +130,7 @@
 							maps_link = '<a href="https://www.google.com/maps/search/?api=1&query=' + doc['LAT'] + ',' + doc['LNG'] + '" target="_blank">Google Maps</a>'
 						}
 
-						$("#locations").append("<tr class=\"" + classList + "\" id=\"" + doc['id'] + "\"><td>" + doc['Event'] + "</td><td>" + doc['Date'] + "</td><td>" + doc['City'] + "</td><td>" + doc['Location'] + "</td><td>" + doc['Start'] + "</td><td>" + doc['End'] + "</td><td>" + maps_link + "<td>" + doc['Added'] + "</td></tr>");
+						$("#locations_body").append("<tr class=\"" + classList + "\" id=\"" + doc['id'] + "\"><td>" + doc['Event'] + "</td><td>" + doc['Date'] + "</td><td>" + doc['City'] + "</td><td>" + doc['Location'] + "</td><td>" + doc['Start'] + "</td><td>" + doc['End'] + "</td><td>" + maps_link + "<td>" + doc['Added'] + "</td><td>" + classList + "</td></tr>");
 						output.push(doc);
 
 
@@ -145,8 +148,7 @@
 					console.log(textStatus);
 				},
 				complete: function(data) {
-					// $("#locations").stupidtable();
-
+					$("#locations").tablesorter();
 					var i = 0;
 					$("#locations thead tr th").each(function(){
 						$("#search_by").append("<option value=\"" + i + "\">" + $(this).html() + "</option>");
@@ -156,13 +158,14 @@
 					function process_search() {
 						var input, filter, table, tr, td, i, txtValue;
 						input = $("#search_bar");
-						console.log("Hit");
+						column = $("#search_by").val()
+
 						filter = input.val().toUpperCase();
 						tr = $("#locations tr");
 						// Loop through all table rows, and hide those who don't match the search query
 						var num_results = 0;
 						for (i = 0; i < tr.length; i++) {
-							td = tr[i].getElementsByTagName("td")[$("#search_by").val()];
+							td = tr[i].getElementsByTagName("td")[column];
 
 							if (td) {
 						  		txtValue = td.textContent || td.innerText;
@@ -181,6 +184,32 @@
 
 					$("#search_bar").on('change keyup paste mouseup', process_search);
 					$("#search_by").on('change', process_search);
+
+					$("#unread-first").on('click', function(){
+						$("#locations").trigger("sorton", [[[8, 'd']]]);
+					});
+
+					$("#unread-only").on("click", function(){
+						filter = 'UNREAD';
+						column = 8;
+						tr = $("#locations tr");
+						// Loop through all table rows, and hide those who don't match the search query
+						var num_results = 0;
+						for (i = 0; i < tr.length; i++) {
+							td = tr[i].getElementsByTagName("td")[column];
+
+							if (td) {
+						  		txtValue = td.textContent || td.innerText;
+
+						  		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+									num_results += 1;
+				     			} else {
+									tr[i].style.display = "none";
+								}
+							}
+						}
+					});
 				}
 			});
 		</script>
@@ -199,31 +228,42 @@
 		<div class="container">
 			<p class="lead" id="nums"></p>
 
-			<div class="field has-addons has-addons-centered">
-				<p class="control">
-				    <a class="button is-static">Search for...</a>
-				</p>
-				<p class="control">
-					<input class="input" type="text" name="search_bar" id="search_bar" placeholder="Enter search text...">
-				</p>
-				<p class="control">
-				    <a class="button is-static">...in the column...</a>
-				</p>
-				<p class="control">
-					<span class="select">
-						<select id="search_by">
-						</select>
-					</span>
-				</p>
-				<p class="control">
-				    <a class="button is-static" id="num_results"></a>
-				</p>
+			<div class="columns">
+				<div class="column is-9">
+					<div class="field has-addons has-addons-centered">
+						<p class="control">
+						    <a class="button is-static">Search for...</a>
+						</p>
+						<p class="control">
+							<input class="input" type="text" name="search_bar" id="search_bar" placeholder="Enter search text...">
+						</p>
+						<p class="control">
+						    <a class="button is-static">...in the column...</a>
+						</p>
+						<p class="control">
+							<span class="select">
+								<select id="search_by">
+								</select>
+							</span>
+						</p>
+						<p class="control">
+						    <a class="button is-static" id="num_results"></a>
+						</p>
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="buttons">
+						<a class="button is-info" id="unread-first">Unread first</a>
+						<a class="button is-danger" id="unread-only">Unread only</a>
+					</div>
+				</div>
 			</div>
 
 			<table class="table center" id="locations">
 				<thead>
-					<tr><th>Name</th><th>Date of Exposure</th><th>Region</th><th>Address</th><th>Start Time</th><th>End Time</th><th>Google Maps</th><th>Added by MOH</th></tr>
+					<tr><th>Name</th><th>Date of Exposure</th><th>Region</th><th>Address</th><th>Start Time</th><th>End Time</th><th>Google Maps</th><th>Added by MOH</th><th>Status</th></tr>
 				</thead>
+				<tbody id="locations_body"></tbody>
 			</table>
 		</div>
 		<footer class="footer">
