@@ -30,27 +30,26 @@
 
                         var dt = new Date(date);
 
-                        x.push(dt.toString());
+                        x.push(dt);
                         y.push(words);
                     }
 
-
                     var data = {
                         type: "scatter",
-                        mode: "lines",
+                        mode: "lines+markers",
                         x: x,
                         y: y,
-                        line: {color: '#7F7F7F'}
+                        line: {color: '#BB342F'}
                     }
 
                     var layout = {
-                        title: 'Thesis Word Count',
+                        title: 'Thesis Word Count (Updated every time I compile)',
                         xaxis: {
                             range: ['2021-09-01', '2024-12-31'],
                             type: 'date'
                         },
                         yaxis: {
-                            autorange: false,
+                            autorange: true,
                             range: [0, 1000],
                             type: 'linear'
                         }
