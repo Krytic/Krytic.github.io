@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>COVID Location of Interest Checker</title>
+
+		<meta charset="utf-8"/>
+
+		<style type="text/css">
+			.unread {
+				background: rgba(255, 204, 0, 0.3);
+			}
+
+			.unread-text {
+				display: inline;
+				background: rgba(255, 204, 0, 0.3);
+			}
+
+			.lead {
+				font-size: 18pt;
+				font-weight: 100;
+				text-align: center;
+				padding-bottom: 25px;
+			}
+
+			.banner {
+				background-image: url(stripes.svg);
+				background-position: top;
+				background-repeat: no-repeat;
+				background-size: cover;
+				padding-bottom: 1rem;
+				padding-top: 1rem;
+				width: 100%;
+			}
+
+			.container {
+				padding-top: 50px;
+			}
+
+			table.center {
+				margin-left:auto;
+				margin-right:auto;
+			}
+		</style>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script type="text/javascript">
+			let myStorage = window.localStorage;
+
+			jQuery.ajax({
+				url: "https://raw.githubusercontent.com/minhealthnz/nz-covid-data/main/locations-of-interest/august-2021/locations-of-interest.csv",
+				type: 'get',
+				dataType: 'text',
+				success: function(data, status, jqXHR) {
+					data = data.replace(/\n\n/, ":");
+					let lines = data.split(/\n{1,2}/);
+					let fields = lines[0].split(',');
+					let output = [];
+					let num_unread = lines.length - 1;
+
+					for(let i = 1; i < lines.length; i++) {
+						if (lines[i] == "") {
+							num_unread = num_unread - 1;
+							continue;
+						}
+						try {
+							csv = $.csv.toArray(lines[i]);
+						} catch {
+							num_unread = num_unread - 1;
+							continue; // probably a line that MOH didn't encode right (continuation of previous line)
+						}
+						let current = csv;
+						let doc = {};
+						let re = /([0-9]{2}\/[0-9]{2}\/[0-9]{2,4})\g/
+
+						for(let j = 0; j < fields.length; j++) {
+							doc[fields[j].replace(/[\n\r]+/g, "")] = current[j];
+						}
+
+						let date = current[1].split(" ").slice(-1)[0];
+						if(date.includes("/")) {
+							let dateparts = date.split("/");
+							let processed_datestring = "";
+							for(let k = 0; k < 3; k++) {
+								// dateparts[k] = "";
+								if(k < 2) {
+									if(dateparts[k].length < 2){
+										dateparts[k] = "0".concat(dateparts[k]);
+									}
+								}
+								else {
+									if(dateparts[k].length == 2) {
+										dateparts[k] = "20".concat(dateparts[k]);
+									}
+								}
+
+								processed_datestring = processed_datestring.concat(dateparts[k], "/");
+							}
+
+							doc['Date'] = processed_datestring.slice(0, -1);
+						} else {
+							doc['Date'] = doc['Start'].split(",")[0];
+						}
+
+						let processed_addedstring = "";
+						if(doc['Added'].includes("-")) { // Who in the MOH decided to format some as YYYY-MM-DD??
+							let added_parts = doc['Added'].split(" ")[0].split("-");
+							processed_addedstring = added_parts[2] + "/" + added_parts[1] + "/" + added_parts[0]
+						} else if(doc['Added'].includes("/")) {
+							processed_addedstring = doc['Added'].split(" ")[0];
+						}
+						else {
+							processed_addedstring = "Not Known";
+						}
+
+						doc['Added'] = processed_addedstring;
+
+						classList = "unread";
+						if (localStorage.getItem(doc['id']) == "read") {
+							num_unread = num_unread - 1;
+							classList = "read";
+						}
+
+						if (doc['LAT'] == "NA" || doc['LNG'] == "NA") {
+							maps_link = "unavailable";
+						}
+						else {
+							maps_link = '<a href="https://www.google.com/maps/search/?api=1&query=' + doc['LAT'] + ',' + doc['LNG'] + '" target="_blank">Google Maps</a>'
+						}
+
+						$("#locations_body").append("<tr class=\"" + classList + "\" id=\"" + doc['id'] + "\"><td>" + doc['Event'] + "</td><td>" + doc['Date'] + "</td><td>" + doc['City'] + "</td><td>" + doc['Location'] + "</td><td>" + doc['Start'] + "</td><td>" + doc['End'] + "</td><td>" + maps_link + "<td>" + doc['Added'] + "</td><td>" + classList + "</td></tr>");
+						output.push(doc);
+
+
+						localStorage.setItem(doc['id'], 'read');
+					}
+
+					$("#nums").append("<strong>" + lines.length + "</strong> locations of interest, <strong>" + num_unread + "</strong> new since your last visit (highlighted in <p class=\"unread-text\">yellow</p>)");
+
+					$("#num_results").html(lines.length + " results");
+
+
+				},
+				error: function(jqXHR, textStatus, errorThrow){
+					console.log("error occured");
+					console.log(textStatus);
+				},
+				complete: function(data) {
+					$("#locations").tablesorter();
+					var i = 0;
+					$("#locations thead tr th").each(function(){
+						$("#search_by").append("<option value=\"" + i + "\">" + $(this).html() + "</option>");
+						i += 1
+					});
+
+					function process_search() {
+						var input, filter, table, tr, td, i, txtValue;
+						input = $("#search_bar");
+						column = $("#search_by").val()
+
+						filter = input.val().toUpperCase();
+						tr = $("#locations tr");
+						// Loop through all table rows, and hide those who don't match the search query
+						var num_results = 0;
+						for (i = 0; i < tr.length; i++) {
+							td = tr[i].getElementsByTagName("td")[column];
+
+							if (td) {
+						  		txtValue = td.textContent || td.innerText;
+
+						  		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+									num_results += 1;
+				     			} else {
+									tr[i].style.display = "none";
+								}
+							}
+						}
+
+						$("#num_results").html(num_results + " results")
+					}
+
+					$("#search_bar").on('change keyup paste mouseup', process_search);
+					$("#search_by").on('change', process_search);
+
+					$("#unread-first").on('click', function(){
+						$("#locations").trigger("sorton", [[[8, 'd']]]);
+					});
+
+					$("#unread-only").on("click", function(){
+						filter = 'UNREAD';
+						column = 8;
+						tr = $("#locations tr");
+						// Loop through all table rows, and hide those who don't match the search query
+						var num_results = 0;
+						for (i = 0; i < tr.length; i++) {
+							td = tr[i].getElementsByTagName("td")[column];
+
+							if (td) {
+						  		txtValue = td.textContent || td.innerText;
+
+						  		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+									num_results += 1;
+				     			} else {
+									tr[i].style.display = "none";
+								}
+							}
+						}
+					});
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<section class="hero banner has-text-centered">
+			<div class="hero-body">
+				<p class="title">
+					New Zealand COVID-19 Locations of Interest
+				</p>
+				<p class="subtitle" id="lastupdated">
+					Remembers what you have already seen
+				</p>
+			</div>
+		</section>
+		<div class="container">
+			<p class="lead" id="nums"></p>
+
+			<div class="columns">
+				<div class="column is-9">
+					<div class="field has-addons has-addons-centered">
+						<p class="control">
+						    <a class="button is-static">Search for...</a>
+						</p>
+						<p class="control">
+							<input class="input" type="text" name="search_bar" id="search_bar" placeholder="Enter search text...">
+						</p>
+						<p class="control">
+						    <a class="button is-static">...in the column...</a>
+						</p>
+						<p class="control">
+							<span class="select">
+								<select id="search_by">
+								</select>
+							</span>
+						</p>
+						<p class="control">
+						    <a class="button is-static" id="num_results"></a>
+						</p>
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="buttons">
+						<a class="button is-info" id="unread-first">Unread first</a>
+						<a class="button is-danger" id="unread-only">Unread only</a>
+					</div>
+				</div>
+			</div>
+
+			<table class="table center" id="locations">
+				<thead>
+					<tr><th>Name</th><th>Date of Exposure</th><th>Region</th><th>Address</th><th>Start Time</th><th>End Time</th><th>Google Maps</th><th>Added by MOH</th><th>Status</th></tr>
+				</thead>
+				<tbody id="locations_body"></tbody>
+			</table>
+		</div>
+		<footer class="footer">
+			<div class="content has-text-centered">
+				<p>
+					<strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. Website by <a href="http://ordinarystarman.com/">Sean Richards</a>. Based off of an idea by <a href="https://twitter.com/jsmnndrsn/">@jsmnndrsn</a> and <a href="https://twitter.com/SNJ_nz/">@SNJ_nz</a>.
+					<br />
+					"COVID Stripes" by the <a href="https://covid19.govt.nz/">all-of-Government</a> response group. Not affiliated with any Crown entity otherwise. <a href="https://covid19.govt.nz/covid-19-vaccines/how-to-get-a-covid-19-vaccination/book-your-covid-19-vaccination/">Book your vaccine</a>, and <strong>wear a mask!</strong>
+					<br />
+					<strong>Disclaimer</strong>: This information is pulled from a <a href="https://github.com/minhealthnz/nz-covid-data/tree/main/locations-of-interest/august-2021">Ministry of Health csv file</a>. It may not always be up-to-date when new locations have <em>just</em> been announced. If in doubt - check the <a href="https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-health-advice-public/contact-tracing-covid-19/covid-19-contact-tracing-locations-interest">Ministry of Health</a> website.
+				</p>
+			</div>
+		</footer>
+	</body>
+</html>
