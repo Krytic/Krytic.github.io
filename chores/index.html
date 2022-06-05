@@ -64,10 +64,10 @@
 				<tr><th>Inside</th><th>Person</th><th>Outside</th></tr>
 			</thead>
 			<tbody>
-				<tr><td id="lawn1">Kitchen</td><td id="task-1"></td><td>Weeding</td></tr>
-				<tr><td id="lawn1">Bathroom</td><td id="task-2"></td><td>Weedwhacking</td></tr>
-				<tr><td id="lawn1">Bins</td><td id="task-3"></td><td>Back Lawn</td></tr>
-				<tr><td id="lawn1">Lounge / Hallway</td><td id="task-4"></td><td>Front Lawn</td></tr>
+				<tr><td id="lawn1">Kitchen</td><td id="task-1"></td><td id="outside-task-1"></td></tr>
+				<tr><td id="lawn1">Bathroom</td><td id="task-2"></td><td id="outside-task-2"></td></tr>
+				<tr><td id="lawn1">Bins</td><td id="task-3"></td><td id="outside-task-3"></td></tr>
+				<tr><td id="lawn1">Lounge / Hallway</td><td id="task-4"></td><td id="outside-task-4"></td></tr>
 			</tbody>
 		</table>
 
@@ -75,6 +75,12 @@
 			document.getElementById('js-warning').style.display = 'none';
 
 			Flatmates = ['Sean', 'Ryan', 'Frazer', 'Jasmine'];
+			OutsideChores = {
+				'Sean': 'Weeding',
+				'Ryan': 'Front Lawn',
+				'Jasmine': 'Back Lawn',
+				'Frazer': 'Weedwhacking'
+			};
 
 			var OriginDate = new Date(2022, 2, 7, 0, 0, 0, 0);
 			var ThisWeek = new Date();
@@ -85,7 +91,7 @@
 	                days = new Date(TargetDate).setHours(0, 0, 0, 0) - origin.setHours(0, 0, 0, 0);
 	            return Math.round(days / 864e5);
 	        }
-			
+
 	        function GetChoreFor(e) {
 	            var DaysSinceInception = Fa(e),
 	                idx = DaysSinceInception % Flatmates.length;
@@ -102,6 +108,7 @@
 	        	var This_Person = new Date;
 	        	This_Person.setDate(ThisWeek.getDate() - (ThisWeek.getDay() + 6) % 7 + i); // Get the date of the most recent Monday,
 	        	document.getElementById('task-' + i).innerHTML = GetChoreFor(This_Person);
+	        	document.getElementById('outside-task-' + i).innerHTML = OutsideChores[GetChoreFor(This_Person)];
 	        }
 
 	        Sa = Ma.sort(() => Math.random() - 0.5);
@@ -125,7 +132,7 @@
 		        	Fs = Fs + Ma[j] + endc;
 	        	}
 	        }
-      
+
 	        document.getElementById('flatname').innerHTML = Fs;
 		</script>
 	</body>
