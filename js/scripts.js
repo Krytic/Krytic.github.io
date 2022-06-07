@@ -21,6 +21,11 @@ jQuery(function ($) {
 
 	    $("#show-kaitiaki").on('click', function(){
 	    	$("#kaitiaki-code").show("slide", { direction: "right" }, 2000);
+	    	// $("#dismiss").show("slide", { direction: "right" }, 2000);
+	    });
+
+	    $("#dismiss-btn").on('click', function(){
+	    	$("#kaitiaki-code").hide("slide", { direction: "right" }, 2000);
 	    });
 	});
 

@@ -18,6 +18,13 @@ Author: themehippo.com
     border-radius: 0px;
 }
 
+#dismiss-btn {
+    display: block;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
 /*------------------------------------------------------------------
 # [Color codes]
 
