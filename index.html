@@ -1,272 +1,267 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Sean Richards &mdash; the Ordinary Starman</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Sean Richards &mdash; the Ordinary Starman</title>
+        <!-- favicon -->
+        <link href="favicon.png" rel=icon>
+        <!-- web-fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+        <!-- font-awesome -->
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Style CSS -->
+        <link href="css/style.css" rel="stylesheet">
 
-    <!-- favicon -->
-    <link href="favicon.png" rel=icon>
-
-    <!-- web-fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
-
-    <!-- font-awesome -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Style CSS -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-</head>
-<body id="page-top" data-spy="scroll" data-target=".navbar">
-    <div id="main-wrapper">
-        <!-- Page Preloader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="status-mes"></div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/monokai.min.css" integrity="sha512-RLF8eOxhuwsRINc7r56dpl9a3VStqrXD+udWahutJrYdyh++2Ghnf+s4jFsOyryKZt/GNjPwbXVPH3MJpKrn2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar">
+        <div id="main-wrapper">
+            <!-- Page Preloader -->
+            <div id="preloader">
+                <div id="status">
+                    <div class="status-mes"></div>
+                </div>
             </div>
-        </div>
-
-        <div class="columns-block">
-            <div class="left-col-block blocks">
-                <header class="header">
-                    <div class="content text-center">
-                        <h1>Hi, I'm Sean Richards!</h1>
-
-                        <p class="lead">Research Assistant | PhD Student</p>
-                        <ul class="social-icon">
-                            <li><a href="https://twitter.com/OrdinaryStarman"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/ordinarystarman/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="profile-img"></div>
-                </header>
-                <!-- .header-->
-            </div>
-
-
-            <div class="right-col-block blocks">
-                <section class="intro section-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>What I am all about.</h2>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <p>
-                                    I work with stellar models &mdash; primarily the <a href="https://bpass.auckland.ac.nz/">BPASS</a> models and the <a href="https://people.ast.cam.ac.uk/~stars/">STARS</a> code. I study compact remnant population synthesis, and the nature of the natal supernova kick. I use the observed merger rate densities from LIGO and VIRGO to constrain values of the kick parameters &mdash; &alpha; and &beta; for the Bray kick, and &sigma; for the Hobbs kick.
-                                </p>
-
-                                <p>
-                                    I also have a strong interest in computational astrophysics. My background in Computer Science has equipped me to deal with large-scale stellar modelling, and I am currently developing the <a href="https://bpass.auckland.ac.nz/">BPASS</a> v3 data release.
-                                </p>
-                            </div>
+            <div class="columns-block">
+                <div class="left-col-block blocks">
+                    <header class="header">
+                        <div class="content text-center">
+                            <h1>Hi, I'm Sean Richards!</h1>
+                            <p class="lead">PhD Student</p>
+                            <ul class="social-icon">
+                                <li><a href="https://twitter.com/OrdinaryStarman"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/ordinarystarman/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
-                    </div>
-                </section>
+                        <div class="profile-img"></div>
+                    </header>
+                    <!-- .header-->
+                </div>
 
+                <div class="right-col-block blocks" id="kaitiaki-code">
+                    <pre><code id="kaitiaki-codeblock" class="language-python"></code></pre>
+                </div>
 
-                <section class="expertise-wrapper section-wrapper gray-bg">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>Expertise</h2>
+                <div class="right-col-block blocks" id="right-side">
+                    <section class="intro section-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h2>What I am all about.</h2>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- .row -->
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Bachelor of Science</h3>
-
+                                <div class="col-md-12">
                                     <p>
-                                        Majoring in Computer Science (algorithmics &amp; computability focus) and Physics (astrophysics focus)
+                                        I work with stellar models &mdash; primarily the <a href="https://bpass.auckland.ac.nz/">BPASS</a> models and the <a href="https://people.ast.cam.ac.uk/~stars/">STARS</a> code. I study compact remnant population synthesis, and the nature of the natal supernova kick. I use the observed merger rate densities from LIGO and VIRGO to constrain values of the kick parameters &mdash; &alpha; and &beta; for the Bray kick, and &sigma; for the Hobbs kick.
                                     </p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Postgraduate Diploma in Science</h3>
-
                                     <p>
-                                        Working with <a href="https://space.auckland.ac.nz/">Te P&umacr;naha &Amacr;tea</a> to develop the University of Auckland Ground Station One.
+                                        I also have a strong interest in computational astrophysics. My background in Computer Science has equipped me to deal with large-scale stellar modelling, and I am currently developing the <a href="https://bpass.auckland.ac.nz/">BPASS</a> v3 data release.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <!-- .row -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>Master of Science</h3>
-
-                                    <p>
-                                        Working with Associate Professor Jan Eldridge (Head of Physics) to determine the nature of the natal supernova kick.
-                                    </p>
+                    </section>
+                    <section class="expertise-wrapper section-wrapper gray-bg">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h2>Expertise</h2>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-6">
-                                <div class="expertise-item">
-                                    <h3>PhD Student</h3>
-
-                                    <p>
-                                        Working with Associate Professor Jan Eldridge and Dr H&eacute;lo&iuml;se Stevance to further efficiently model the full physics of binary star systems.
-                                    </p>
+                            <!-- .row -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="expertise-item">
+                                        <h3>Bachelor of Science</h3>
+                                        <p>
+                                            Majoring in Computer Science (algorithmics &amp; computability focus) and Physics (astrophysics focus)
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="expertise-item">
+                                        <h3>Postgraduate Diploma in Science</h3>
+                                        <p>
+                                            Working with <a href="https://space.auckland.ac.nz/">Te P&umacr;naha &Amacr;tea</a> to develop the University of Auckland Ground Station One.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- .row -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="expertise-item">
+                                        <h3>Master of Science</h3>
+                                        <p>
+                                            Working with Associate Professor Jan Eldridge (Head of Physics) to determine the nature of the natal supernova kick.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="expertise-item">
+                                        <h3>PhD Student</h3>
+                                        <p>
+                                            Working with Associate Professor Jan Eldridge and Dr H&eacute;lo&iuml;se Stevance to further efficiently model the full physics of binary star systems.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- .row -->
                         </div>
-                        <!-- .row -->
-                    </div>
-                    <!--.container-fluid-->
-                </section>
-                <!-- .expertise-wrapper -->
-
-                <section class="section-wrapper skills-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>Skills</h2>
+                        <!--.container-fluid-->
+                    </section>
+                    <section class="section-programming section-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h2>Programming</h2>
+                                    </div>
                                 </div>
                             </div>
+                            <!--.row-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    I've been programming for years. My native language is Python, but I've also had experience in C, C++, C#, Lua, HTML/CSS/JS/jQuery, Fortran (77, 95, 2003), and Julia. You can check out my <a href="https://github.com/krytic/">GitHub</a> for some examples, or click a button below!
+                                    <hr />
+                                    <a class="btn btn-primary" id="show-kaitiaki">Kaitiaki</a>
+                                </div>
+                            </div>
+                            <!--.row-->
                         </div>
-                        <!--.row-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="progress-wrapper">
-
-                                    <div class="progress-item">
-                                        <span class="progress-title">Working with large-scale data</span>
-
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="62" aria-valuemin="0"
-                                            aria-valuemax="100" style="width: 62%"><span class="progress-percent"> 62%</span>
+                        <!--.container-fluid-->
+                    </section>
+                    <!-- .expertise-wrapper -->
+                    <section class="section-wrapper skills-wrapper gray-bg">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h2>Skills</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--.row-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="progress-wrapper">
+                                        <div class="progress-item">
+                                            <span class="progress-title">Working with large-scale data</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="62" aria-valuemin="0"
+                                                    aria-valuemax="100" style="width: 62%"><span class="progress-percent"> 62%</span>
+                                                </div>
+                                            </div>
+                                            <!-- .progress -->
                                         </div>
+                                        <!-- .skill-progress -->
+                                        <div class="progress-item">
+                                            <span class="progress-title">Project Management</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                                    aria-valuemax="100" style="width: 90%"><span class="progress-percent"> 90%</span>
+                                                </div>
+                                            </div>
+                                            <!-- /.progress -->
+                                        </div>
+                                        <!-- /.skill-progress -->
+                                        <div class="progress-item">
+                                            <span class="progress-title">Writing</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                    aria-valuemax="100" style="width: 75%;"><span class="progress-percent"> 75%</span>
+                                                </div>
+                                            </div>
+                                            <!-- /.progress -->
+                                        </div>
+                                        <!-- /.skill-progress -->
+                                        <div class="progress-item">
+                                            <span class="progress-title">Public Speaking</span>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
+                                                    aria-valuemax="100" style="width: 55%;"><span class="progress-percent"> 55%</span>
+                                                </div>
+                                            </div>
+                                            <!-- /.progress -->
+                                        </div>
+                                        <!-- /.skill-progress -->
                                     </div>
-                                    <!-- .progress -->
+                                    <!-- /.progress-wrapper -->
                                 </div>
-                                <!-- .skill-progress -->
-
-
-                                <div class="progress-item">
-                                    <span class="progress-title">Project Management</span>
-
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                                        aria-valuemax="100" style="width: 90%"><span class="progress-percent"> 90%</span>
+                            </div>
+                            <!--.row -->
+                        </div>
+                        <!-- .container-fluid -->
+                    </section>
+                    <!-- .skills-wrapper -->
+                    <section class="section-contact section-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h2>Contact</h2>
                                     </div>
                                 </div>
-                                <!-- /.progress -->
                             </div>
-                            <!-- /.skill-progress -->
-
-
-                            <div class="progress-item">
-                                <span class="progress-title">Writing</span>
-
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                    aria-valuemax="100" style="width: 75%;"><span class="progress-percent"> 75%</span>
+                            <!--.row-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <address>
+                                        <strong>Address</strong><br>
+                                        38 Princes Street<br />
+                                        Auckland Central<br />
+                                        Auckland 1010<br />
+                                        New Zealand
+                                    </address>
+                                    <address>
+                                        <strong>Email</strong><br>
+                                        <a href="mailto:sean.richards@auckland.ac.nz">sean.richards@auckland.ac.nz</a>
+                                    </address>
                                 </div>
                             </div>
-                            <!-- /.progress -->
+                            <!--.row-->
                         </div>
-                        <!-- /.skill-progress -->
-
-                        <div class="progress-item">
-                            <span class="progress-title">Public Speaking</span>
-
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
-                                aria-valuemax="100" style="width: 55%;"><span class="progress-percent"> 55%</span>
+                        <!--.container-fluid-->
+                    </section>
+                    <!--.section-contact-->
+                    <footer class="footer">
+                        <div class="copyright-section">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="copytext">&copy; 2015 Online CV. All rights reserved | Design By: <a
+                                        href="https://themehippo.com">ThemeHippo</a></div>
+                                    </div>
+                                </div>
+                                <!--.row-->
                             </div>
+                            <!-- .container-fluid -->
                         </div>
-                        <!-- /.progress -->
-                    </div>
-                    <!-- /.skill-progress -->
+                        <!-- .copyright-section -->
+                    </footer>
+                    <!-- .footer -->
                 </div>
-                <!-- /.progress-wrapper -->
+                <!-- .right-col-block -->
             </div>
+            <!-- .columns-block -->
         </div>
-        <!--.row -->
-    </div>
-    <!-- .container-fluid -->
-</section>
-<!-- .skills-wrapper -->
-
-<section class="section-contact section-wrapper gray-bg">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <h2>Contact</h2>
-                </div>
-            </div>
-        </div>
-        <!--.row-->
-        <div class="row">
-            <div class="col-md-12">
-                <address>
-                    <strong>Address</strong><br>
-                    38 Princes Street<br />
-                    Auckland Central<br />
-                    Auckland 1010<br />
-                    New Zealand
-                </address>
-
-                <address>
-                    <strong>Email</strong><br>
-                    <a href="mailto:sean.richards@auckland.ac.nz">sean.richards@auckland.ac.nz</a>
-                </address>
-            </div>
-        </div>
-        <!--.row-->
-    </div>
-    <!--.container-fluid-->
-</section>
-<!--.section-contact-->
-
-<footer class="footer">
-    <div class="copyright-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="copytext">&copy; 2015 Online CV. All rights reserved | Design By: <a
-                        href="https://themehippo.com">ThemeHippo</a></div>
-                    </div>
-                </div>
-                <!--.row-->
-            </div>
-            <!-- .container-fluid -->
-        </div>
-        <!-- .copyright-section -->
-    </footer>
-    <!-- .footer -->
-</div>
-<!-- .right-col-block -->
-</div>
-<!-- .columns-block -->
-</div>
-<!-- #main-wrapper -->
-
-<!-- jquery -->
-<script src="js/jquery-2.1.4.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/scripts.js"></script>
-</body>
+        <!-- #main-wrapper -->
+        <!-- jquery -->
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js" integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
