@@ -5,20 +5,20 @@ Version: 1.0
 Author: themehippo.com
 */
 
-#kaitiaki-code {
+div[id$="-code"] {
     display: none;
     z-index: 1000;
     background: white;
 }
 
-#kaitiaki-code pre {
+div[id$="-code"] pre {
     padding: 0;
     margin: 0;
     border: 0;
     border-radius: 0px;
 }
 
-#dismiss-btn {
+button[id^='dismiss-'] {
     display: block;
     position: fixed;
     right: 20px;
@@ -275,6 +275,23 @@ button:focus,
     position       : relative;
     }
 
+.header .fat-butt {
+    margin-bottom: 50px;
+}
+
+.shadow:before
+{
+    display:block;
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    -moz-box-shadow:inset 0px 0px 6px 6px rgba(255,255,255,1);
+    -webkit-box-shadow:inset 0px 0px 6px 6px rgba(255,255,255,1);
+    box-shadow:inset 0px 0px 6px 6px rgba(255,255,255,1);
+}
+
+
 .header .profile-img {
     position            : absolute;
     top                 : 0;
@@ -338,16 +355,16 @@ button:focus,
 
 .header .content .social-icon li {
     display : inline-block;
-    margin  : 0 2px;
+    margin  : 0 20px;
     }
 
 .header .content .social-icon li a {
     display       : block;
-    font-size     : 12px;
+    font-size     : 24px;
     color         : #ffffff;
-    width         : 34px;
-    height        : 34px;
-    line-height   : 33px;
+    width         : 68px;
+    height        : 68px;
+    line-height   : 66px;
     text-align    : center;
     border-radius : 100%;
     border        : 2px solid rgba(255, 255, 255, .2);
