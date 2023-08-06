@@ -32,7 +32,7 @@ jQuery(function ($) {
 
     $(document).ready(function(){
     	function run_setups() {
-			setup_codeblock('kaitiaki', 'kaitiaki/plotfile.py');
+			setup_codeblock('kaitiaki', 'kaitiaki/file_handlers/plotfile.py');
 			setup_codeblock('takahe', 'src/integrator.jl');
 			setup_codeblock('MyBBWiki', 'Upload/inc/plugins/wiki.php');
     	}
