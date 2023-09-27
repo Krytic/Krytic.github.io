@@ -106,10 +106,12 @@
                         var date = parts[0];
                         var words = parts[1];
 
-                        var dt = new Date(date);
+                        if (parseInt(words) > 0) {
+                            var dt = new Date(date);
 
-                        x.push(dt);
-                        y.push(words);
+                            x.push(dt);
+                            y.push(words);
+                        }
                     }
 
                     var data = {
