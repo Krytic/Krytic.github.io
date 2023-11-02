@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.form1.action = "https://timetable.auckland.ac.nz/scientia/timetable" + new Date().getFullYear() +  "/default.aspx";
+
+            document.form1.submit();
+        }
+    </script>
+
+    <form style="display: none" method="POST" name="form1" id="form1">
+      <input type="hidden" id="dlObject" name="dlObject" value="303-610"/>
+      <input type="hidden" id="lbWeeks" name="lbWeeks" value="t"/>
+      <input type="hidden" id="lbDays" name="lbDays" value="1-7;1;2;3;4;5;6;7"/>
+      <input type="hidden" id="dlPeriod" name="dlPeriod" value="1-32;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32"/>
+      <input type="hidden" id="dlType" name="dlType" value="location_grid;cyon_reports_calendar_url;dummy"/>
+      <input type="hidden" id="bGetTimetable" name="bGetTimetable" value="View+Timetable"/>
+      <input type="hidden" id="tLinkType" name="tLinkType" value="locations"/>
+      <input type="hidden" id="tWildcard" name="tWildcard" value=""/>
+      <input type="hidden" id="dlFilter" name="dlFilter" value=""/>
+    </form>
+</body>
+</html>
