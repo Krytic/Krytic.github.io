@@ -48,7 +48,7 @@
         </section>
         <div class="container" style="padding-top:25px">
             <div class="notification is-info">
-            I have been a PhD Student for <strong id="phdays"></strong> days.
+            I have been a PhD Student for <strong id="phdays"></strong> days. My minimum submission date is in <strong id="submitdays"></strong> days.
             </div>
             <div class="columns">
                 <aside class="menu">
@@ -143,16 +143,28 @@
                     Plotly.newPlot('myDiv', [data], layout);
                 }, 'text');
 
-                var date1 = new Date();
-                var date2 = new Date("09/01/2021");
+                function Delta_Days(d1, d2) {
+                    if (d1 != "") {
+                        var date1 = new Date(d1);
+                    } else {
+                        var date1 = new Date();
+                    }
+                    if (d2 != "") {
+                        var date2 = new Date(d2);
+                    } else {
+                        var date2 = new Date();
+                    }
+                    // To calculate the time difference of two dates
+                    var Difference_In_Time = date1.getTime() - date2.getTime();
 
-                // To calculate the time difference of two dates
-                var Difference_In_Time = date1.getTime() - date2.getTime();
+                    // // To calculate the no. of days between two dates
+                    var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24));
 
-                // To calculate the no. of days between two dates
-                var Difference_In_Days = Math.floor(Difference_In_Time / (1000 * 3600 * 24));
+                    return Difference_In_Days;
+                }
 
-                $("#phdays").html(Difference_In_Days);
+                $("#phdays").html(Delta_Days("", "09/01/2021"));
+                $("#submitdays").html(Delta_Days("09/01/2024", ""));
             });
         </script>
 
