@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title>Word Counter</title>
 
+        <meta name="robots" content="noindex">
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
@@ -55,10 +57,6 @@
             I have been a PhD Student for <strong id="phdays"></strong> days. My target submission date is in <strong id="submitdays"></strong> days.
             </div>
             <div class="columns">
-                <aside class="menu">
-                  <p class="menu-label">Current Thesis Structure</p>
-                  <div id="structure"></div>
-                </aside>
                 <div class="column content">
                     <div id="myDiv"></div>
 
@@ -85,12 +83,12 @@
             $(document).ready(function(){
                 var x = [];
                 var y = [];
-                $.get('TOC.html', function(data) {
-                    $("#structure").html(data);
-                    $("#structure").find(">:first-child").addClass("menu-list");
+                // $.get('TOC.html', function(data) {
+                //     $("#structure").html(data);
+                //     $("#structure").find(">:first-child").addClass("menu-list");
 
-                    document.dispatchEvent(event);
-                }, 'html');
+                //     document.dispatchEvent(event);
+                // }, 'html');
 
 
                 $.get('quotes.html', function(data) {
@@ -172,7 +170,7 @@
             });
         </script>
 
-        <script type="text/javascript">
+<!--         <script type="text/javascript">
             document.addEventListener("tocloaded", function() {
                 renderMathInElement(document.getElementById('structure'), {
                       // customised options
@@ -187,6 +185,6 @@
                       throwOnError : true
                     });
             });
-        </script>
+        </script> -->
     </body>
 </html>
