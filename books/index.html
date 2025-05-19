@@ -104,19 +104,22 @@
 
 							</tbody>
 						</table>
+
+						<hr />
+						<h2 class="pt-4">Finished Books</h2>
+						<table class="table table-dark">
+							<thead>
+								<tr><th>Book</th><th>Notes</th></tr>
+							</thead>
+							<tbody id="finished-books">
+
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 
-			<h2 class="pt-4">Finished Books</h2>
-			<table class="table table-dark">
-				<thead>
-					<tr><th>Book</th><th>Notes</th></tr>
-				</thead>
-				<tbody id="finished-books">
 
-				</tbody>
-			</table>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -126,6 +129,61 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.40/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+				function sortTable(n, tableName) {
+				  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+					  table = document.getElementById(tableName);
+					  switching = true;
+					  // Set the sorting direction to ascending:
+					  dir = "asc";
+					  /* Make a loop that will continue until
+					  no switching has been done: */
+					  while (switching) {
+					    // Start by saying: no switching is done:
+					    switching = false;
+					    rows = table.rows;
+					    /* Loop through all table rows (except the
+					    first, which contains table headers): */
+					    for (i = 0; i < (rows.length - 1); i++) {
+					      // Start by saying there should be no switching:
+					      shouldSwitch = false;
+					      /* Get the two elements you want to compare,
+					      one from current row and one from the next: */
+					      x = rows[i].getElementsByTagName("TD")[n];
+					      y = rows[i + 1].getElementsByTagName("TD")[n];
+					      /* Check if the two rows should switch place,
+					      based on the direction, asc or desc: */
+					      if (dir == "asc") {
+					        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					          // If so, mark as a switch and break the loop:
+					          shouldSwitch = true;
+					          break;
+					        }
+					      } else if (dir == "desc") {
+					        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+					          // If so, mark as a switch and break the loop:
+					          shouldSwitch = true;
+					          break;
+					        }
+					      }
+					    }
+					    if (shouldSwitch) {
+					      /* If a switch has been marked, make the switch
+					      and mark that a switch has been done: */
+					      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+					      switching = true;
+					      // Each time a switch is done, increase this count by 1:
+					      switchcount ++;
+					    } else {
+					      /* If no switching has been done AND the direction is "asc",
+					      set the direction to "desc" and run the while loop again. */
+					      if (switchcount == 0 && dir == "asc") {
+					        dir = "desc";
+					        switching = true;
+					      }
+					    }
+					  }
+					}
+
 				$.ajax({
 				    url: "books.csv",
 				    async: true,
@@ -150,6 +208,8 @@
 
 				        	firstNote = "";
 
+				        	weight_term = '';
+
 				        	if (status == "finished") {
 				        		className = "";
 				        		note = "Finished";
@@ -173,6 +233,7 @@
 				        	} else if (status == "inprogress") {
 				        		className = "table-primary";
 				        		note = "In Progress";
+				        		weight_term = '0_0';
 				        	} else if (status == "next") {
 				        		className = "table-secondary";
 				        		note = "Next (if no book club book)";
@@ -184,8 +245,14 @@
 				        		note = status;
 				        	}
 
-				        	table.append("<tr class=\"book-row " + className + "\"><td>" + bookTitle + "<span class=\"author\">" + bookAuthor + "</span></td><td class=\"fw-bold\">" + note + "</td></tr>");
+				        	weight = "<p style='display:none;'>" + weight_term + "</p>";
+
+				        	table.append("<tr class=\"book-row " + className + "\"><td>" + weight + bookTitle + "<span class=\"author\">" + bookAuthor + "</span></td><td class=\"fw-bold\">" + note + "</td></tr>");
 				        }
+
+				        sortTable(0, 'new-books');
+				        sortTable(0, 'reread-books');
+				        sortTable(0, 'finished-books');
 				    }
 				});
 			});
