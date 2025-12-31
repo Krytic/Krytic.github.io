@@ -70,6 +70,11 @@
 		.lede {
 			margin-bottom: 50px !important;
 		}
+		.table-heading-title {
+			text-align: center;
+			padding-bottom: 25px;
+			margin-bottom: 25px !important;
+		}
 		</style>
 	</head>
 	<body>
@@ -77,15 +82,15 @@
 			<header class="lede border-bottom lh-1 py-3">
 				<div class="row flex-nowrap justify-content-between align-items-center">
 					<div class="col-12 text-center">
-						<a class="blog-header-logo text-body-emphasis text-decoration-none">My 2025 Book List</a>
+						<a class="blog-header-logo text-body-emphasis text-decoration-none">My <span id="current_year"></span> Book List</a>
 					</div>
 				</div>
 			</header>
 
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-sm-6">
-						<h2 class="pt-4">New Reads</h2>
+					<div class="col-sm-4">
+						<h2 class="pt-4 table-heading-title border-bottom">New Reads</h2>
 						<table class="table table-dark">
 							<thead>
 								<tr><th>Book</th><th>Status</th></tr>
@@ -94,8 +99,8 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-sm-6">
-						<h2 class="pt-4">Rereads</h2>
+					<div class="col-sm-4">
+						<h2 class="pt-4 table-heading-title border-bottom">Rereads</h2>
 						<table class="table table-dark">
 							<thead>
 								<tr><th>Book</th><th>Status</th></tr>
@@ -104,9 +109,9 @@
 
 							</tbody>
 						</table>
-
-						<hr />
-						<h2 class="pt-4">Finished Books</h2>
+					</div>
+					<div class="col-sm-4">
+						<h2 class="pt-4 table-heading-title border-bottom">Finished Books</h2>
 						<table class="table table-dark">
 							<thead>
 								<tr><th>Book</th><th>Notes</th></tr>
@@ -129,6 +134,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.40/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
+				$("#current_year").text(new Date().getFullYear());
 				function sortTable(n, tableName) {
 				  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 					  table = document.getElementById(tableName);
@@ -192,13 +198,20 @@
 				    },
 				    dataType: "text",
 				    complete: function () {
-				        for (var i = 1; i <= data.length - 1; i++) {
+				    	current_year = (new Date().getFullYear());
 
-				        	isNewTag = data[i][0];
-				        	bookTitle = data[i][1];
-				        	bookAuthor = data[i][2];
-				        	status = data[i][3];
-				        	review = data[i][4];
+				        for (var i = 1; i <= data.length - 1; i++) {
+				        	read_year = data[i][0];
+				        	isNewTag = data[i][1];
+				        	bookTitle = data[i][2];
+				        	bookAuthor = data[i][3];
+				        	status = data[i][4];
+				        	review = data[i][5];
+
+				        	if (read_year.toString() !== current_year.toString()) {
+				        		console.log("Skipping " + bookTitle + ", because " + read_year + " is not the current year.");
+				        		continue;
+				        	}
 
 				        	if (isNewTag == "new") {
 				        		table = $("#new-books");
@@ -223,7 +236,7 @@
 				        		}
 
 				        		if (review != "") {
-				        			reviewLink = " &middot; <a class=\"link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover\" href=\"" + review + "\">Thoughts</a>";
+				        			reviewLink = "<br /><a class=\"link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover\" href=\"" + review + "\">Thoughts</a>";
 				        		} else {
 				        			reviewLink = "";
 				        		}
@@ -231,12 +244,12 @@
 				        		note = note + " &middot; " + firstNote + reviewLink;
 
 				        	} else if (status == "inprogress") {
-				        		className = "table-primary";
+				        		className = "table-success";
 				        		note = "In Progress";
 				        		weight_term = '0_0';
 				        	} else if (status == "next") {
-				        		className = "table-secondary";
-				        		note = "Next (if no book club book)";
+				        		className = "table-info";
+				        		note = "Next";
 				        	} else if (status == "") {
 				        		className = "";
 				        		note = "";
