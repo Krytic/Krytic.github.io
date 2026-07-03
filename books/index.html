@@ -134,7 +134,29 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.40/jquery.csv.min.js" integrity="sha512-Y8iWYJDo6HiTo5xtml1g4QqHtl/PO1w+dmUpQfQSOTqKNsMhExfyPN2ncNAe9JuJUSKzwK/b6oaNPop4MXzkwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				$("#current_year").text(new Date().getFullYear());
+				function get_year() {
+					var $_GET = {};
+					$_GET['year'] = new Date().getFullYear();
+					if(document.location.toString().indexOf('?') !== -1) {
+					    var query = document.location
+					                   .toString()
+					                   // get the query string
+					                   .replace(/^.*?\?/, '')
+					                   // and remove any existing hash string (thanks, @vrijdenker)
+					                   .replace(/#.*$/, '')
+					                   .split('&');
+
+					    for(var i=0, l=query.length; i<l; i++) {
+					       var aux = decodeURIComponent(query[i]).split('=');
+					       $_GET[aux[0]] = aux[1];
+					    }
+					}
+
+					return $_GET['year'];
+				}
+
+				$("#current_year").text(get_year());
+
 				function sortTable(n, tableName) {
 				  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 					  table = document.getElementById(tableName);
@@ -198,7 +220,7 @@
 				    },
 				    dataType: "text",
 				    complete: function () {
-				    	current_year = (new Date().getFullYear());
+				    	current_year = get_year();
 
 				        for (var i = 1; i <= data.length - 1; i++) {
 				        	read_year = data[i][0];
