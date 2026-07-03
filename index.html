@@ -1,255 +1,294 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Sean Richards &mdash; the Ordinary Starman</title>
-        <!-- favicon -->
-        <link href="favicon.png" rel=icon>
-        <!-- web-fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
-        <!-- font-awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css" integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YfxXQMt58DjNfkXFOn62xE+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- Bootstrap -->
-<!--         <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <!-- Style CSS -->
-        <link href="css/style.css" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sean Richards — the Ordinary Starman</title>
+    <meta name="description" content="Sean Richards is a Research Fellow in computational astrophysics at the University of Auckland, modelling binary star evolution, compact remnant kicks, and gravitational-wave populations with BPASS and STARS.">
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    </head>
-    <body id="page-top" data-spy="scroll" data-target=".navbar">
-        <div id="main-wrapper">
-            <!-- Page Preloader -->
-            <div id="preloader">
-                <div id="status">
-                    <div class="status-mes"></div>
-                </div>
-            </div>
-            <div class="columns-block">
-                <div class="left-col-block blocks">
-                    <header class="header">
-                        <div class="content text-center">
-                            <img src="img/NewProfile.jpg" class="rounded-circle border border-3 fat-butt" />
-                            <h1>Hi, I'm Sean Richards!</h1>
-                            <p class="lead">PhD Candidate</p>
-                            <ul class="social-icon">
-                                <li><a href="https://github.com/Krytic/"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
-                                <li><a href="https://twitter.com/OrdinaryStarman"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/ordinarystarman/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="https://bsky.app/profile/ordinarystarman.com"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.tiktok.com/@ordinarystarman"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="profile-img"></div>
-                    </header>
-                    <!-- .header-->
-                </div>
+    <div class="stars" aria-hidden="true"></div>
 
-                <div class="right-col-block blocks" id="kaitiaki-code">
-                    <pre><code id="kaitiaki-codeblock" class="language-python"></code></pre>
-                    <button class="btn btn-info" id='dismiss-kaitiaki'>Dismiss</button>
-                </div>
+    <header id="siteHeader">
+      <div class="navwrap">
+        <a href="#home" class="brand"><span class="dot"></span>Sean Richards</a>
+        <nav aria-label="Primary">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#programming">Programming</a></li>
+            <li><a href="#documents">Documents</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <a class="nav-cta" href="https://ordinarystarman.com/SeanRichardsCV.pdf">Download CV</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</div>
+</header>
 
-                <div class="right-col-block blocks" id="MyBBWiki-code">
-                    <pre><code id="MyBBWiki-codeblock" class="language-php"></code></pre>
-                    <button class="btn btn-info" id='dismiss-MyBBWiki'>Dismiss</button>
-                </div>
+<main id="home">
 
-                <div class="right-col-block blocks" id="takahe-code">
-                    <pre><code id="takahe-codeblock" class="language-julia hljs"></code></pre>
-                    <button class="btn btn-info" id='dismiss-takahe'>Dismiss</button>
-                </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Research Fellow · University of Auckland</p>
+        <h1>Sean Richards</h1>
+        <p class="role mono">Computational astrophysics — binary stars, compact remnants, gravitational waves</p>
+        <p class="lede">I model how binary stars live, die, and kick their remnants across the galaxy — using the BPASS models, the STARS code, and the merger rates seen by LIGO and Virgo.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://ordinarystarman.com/SeanRichardsCV.pdf">Download CV</a>
+          <a class="btn btn-ghost" href="http://ordinarystarman.com/PhD">PhD data tracker</a>
+      </div>
+      <div class="social-row" aria-label="Social links">
+          <a class="social-badge" href="https://github.com/Krytic/" aria-label="GitHub">GH</a>
+          <a class="social-badge" href="https://twitter.com/OrdinaryStarman" aria-label="X / Twitter">X</a>
+          <a class="social-badge" href="https://www.linkedin.com/in/ordinarystarman/" aria-label="LinkedIn">in</a>
+          <a class="social-badge" href="https://bsky.app/profile/ordinarystarman.com" aria-label="Bluesky">BSky</a>
+          <a class="social-badge" href="https://www.tiktok.com/@ordinarystarman" aria-label="TikTok">TT</a>
+      </div>
+  </div>
 
-                <div class="right-col-block blocks" id="right-side">
-                    <section class="intro section-wrapper">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="section-title">
-                                        <h2>What I am all about.</h2>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <p>
-                                        I work with stellar models &mdash; primarily the <a href="https://bpass.auckland.ac.nz/">BPASS</a> models and the <a href="https://people.ast.cam.ac.uk/~stars/">STARS</a> code. I study compact remnant population synthesis, and the nature of the natal supernova kick. I use the observed merger rate densities from LIGO and VIRGO to constrain values of the kick parameters &mdash; &alpha; and &beta; for the Bray kick, and &sigma; for the Hobbs kick.
-                                    </p>
-                                    <p>
-                                        I also have a strong interest in computational astrophysics. My background in Computer Science has equipped me to deal with large-scale stellar modelling, and I am currently developing the <a href="https://bpass.auckland.ac.nz/">BPASS</a> v3 data release.
-                                    </p>
-                                    <h3>Curious about my PhD? Look at the data tracker <a href="http://ordinarystarman.com/PhD">here!</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="expertise-wrapper section-wrapper gray-bg">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="section-title">
-                                        <h2>Expertise</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- .row -->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="expertise-item">
-                                        <h3>Bachelor of Science</h3>
-                                        <p>
-                                            Majoring in Computer Science (algorithmics &amp; computability focus) and Physics (astrophysics focus)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="expertise-item">
-                                        <h3>Postgraduate Diploma in Science</h3>
-                                        <p>
-                                            Working with <a href="https://space.auckland.ac.nz/">Te P&umacr;naha &Amacr;tea</a> to develop the University of Auckland Ground Station One.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- .row -->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="expertise-item">
-                                        <h3>Master of Science</h3>
-                                        <p>
-                                            Working with Professor Jan Eldridge (Head of Physics) to determine the nature of the natal supernova kick.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="expertise-item">
-                                        <h3>PhD Candidate</h3>
-                                        <p>
-                                            Working with Professor Jan Eldridge, Dr Nick Rattenbury, and Dr H&eacute;lo&iuml;se Stevance to further efficiently model the full physics of binary star systems.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- .row -->
-                        </div>
-                        <!--.container-fluid-->
-                    </section>
-                    <section class="section-programming section-wrapper">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="section-title">
-                                        <h2>Programming</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--.row-->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    I've been programming for years. My native language is Python, but I've also had experience in C, C++, C#, Lua, HTML/CSS/JS/jQuery, Fortran (77, 95, 2003), PHP, and Julia. You can check out my <a href="https://github.com/krytic/">GitHub</a> for some examples, or click a button below!
-                                    <hr />
-                                    <a class="btn btn-primary" id="show-kaitiaki">Kaitiaki - Plotfiles</a>
-                                    <a class="btn btn-primary" id="show-takahe">Takahe - Integrator</a>
-                                    <a class="btn btn-primary" id="show-MyBBWiki">MyBBWiki - Plugins</a>
-                                </div>
-                            </div>
-                            <!--.row-->
-                        </div>
-                        <!--.container-fluid-->
-                    </section>
-                    <section class="section-contact section-wrapper gray-bg">
-                        <div class='container-fluid row'>
-                            <div class="col-md-4">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="section-title">
-                                                <h2 class='text-center'>Documents</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--.row-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                                <a class="btn btn-info btn-large" href="SeanRichardsCV.pdf">Get a copy of my CV</a>
-                                                <a class="btn btn-success btn-large" href="https://zenodo.org/record/5523933/">Read my Masters Thesis</a>
-                                                <a class="btn btn-primary btn-large" href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0003-4448-8039&sort=date+desc">Find me on ADS</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--.row-->
-                                </div>
-                                <!--.container-fluid-->
-                            </div>
-                            <div class="col-md-4">
-                                &nbsp;
-                            </div>
-                            <div class="col-md-4">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="section-title">
-                                                <h2 class='text-center'>Contact</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--.row-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <address>
-                                                <strong>Address</strong><br>
-                                                38 Princes Street<br />
-                                                Auckland Central<br />
-                                                Auckland 1010<br />
-                                                New Zealand
-                                            </address>
-                                            <address>
-                                                <strong>Email</strong><br>
-                                                <a href="mailto:sean.richards@auckland.ac.nz">sean.richards@auckland.ac.nz</a>
-                                            </address>
-                                        </div>
-                                    </div>
-                                    <!--.row-->
-                                </div>
-                                <!--.container-fluid-->
-                            </div>
-                        </div>
-                    </section>
-                    <!--.section-contact-->
-                    <footer class="footer">
-                        <div class="copyright-section">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="copytext">&copy; 2015 Online CV. All rights reserved | Design By: <a
-                                        href="https://themehippo.com">ThemeHippo</a></div>
-                                    </div>
-                                </div>
-                                <!--.row-->
-                            </div>
-                            <!-- .container-fluid -->
-                        </div>
-                        <!-- .copyright-section -->
-                    </footer>
-                    <!-- .footer -->
-                </div>
-                <!-- .right-col-block -->
-            </div>
-            <!-- .columns-block -->
-        </div>
-        <!-- #main-wrapper -->
-        <!-- jquery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js" integrity="sha512-Ww1y9OuQ2kehgVWSD/3nhgfrb424O3802QYP/A5gPXoM4+rRjiKrjHdGxQKrMGQykmsJ/86oGdHszfcVgUr4hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" integrity="sha512-bgHRAiTjGrzHzLyKOnpFvaEpGzJet3z4tZnXGjpsCcqOnAH6VGUx9frc5bcIhKTVLEiCO6vEhNAgx5jtLUYrfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/julia.min.js" integrity="sha512-ZsWMzu7oq7AmroP9gyyjR6I7TWzE7bzEj+UQAaLKocc6yYI0gGMunXt64VAMhXez8dJCHi3WXGv86Ktk2oBs4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!-- Bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+  <div class="orbit-visual" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <defs>
+        <radialGradient id="primaryGrad" cx="35%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#FFE8C2"/>
+          <stop offset="100%" stop-color="#F4C77B"/>
+      </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="100" fill="none" stroke="rgba(234,237,247,0.14)" stroke-dasharray="2 6"/>
+  <g class="orbit-group">
+    <circle cx="300" cy="200" r="9" fill="var(--accent-hot)"/>
+    <g transform="translate(100,200)">
+      <circle r="15" fill="url(#primaryGrad)"/>
+  </g>
+</g>
+<defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="var(--accent-kick)"/>
+  </marker>
+</defs>
+</svg>
+</div>
+</div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What I'm about</p>
+        <h2>Binary evolution, remnant kicks, and the gravitational-wave sky.</h2>
+    </div>
+    <div class="about-grid">
+        <p>I work with stellar models — primarily the <a href="https://bpass.auckland.ac.nz/">BPASS</a> models and the <a href="https://github.com/UoA-Stars-And-Supernovae/STARS">STARS</a> code. I study compact remnant population synthesis and the nature of the natal supernova kick, using the observed merger rate densities from LIGO and Virgo to constrain the kick parameters — α and β for the Bray kick, and σ for the Hobbs kick.</p>
+        <p>I also have a strong interest in computational astrophysics. My background in Computer Science is what equipped me to take on large-scale stellar modelling, and I'm currently developing the <a href="https://bpass.auckland.ac.nz/">BPASS</a> v3 data release.</p>
+    </div>
+    <div class="chips">
+        <div class="chip">
+          <div class="sym">α</div>
+          <div class="label">Bray kick</div>
+          <div class="desc">Fallback-scaling parameter linking ejecta mass to remnant kick strength.</div>
+      </div>
+      <div class="chip">
+          <div class="sym">β</div>
+          <div class="label">Bray kick</div>
+          <div class="desc">Second Bray-kick parameter, fit jointly with α against merger-rate data.</div>
+      </div>
+      <div class="chip">
+          <div class="sym">σ</div>
+          <div class="label">Hobbs kick</div>
+          <div class="desc">Velocity dispersion of the Maxwellian natal-kick distribution.</div>
+      </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="research">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Tools of the trade</p>
+        <h2>The models and observatories behind the work.</h2>
+    </div>
+    <div class="stack-grid">
+        <div class="stack-card">
+          <h3>BPASS</h3>
+          <p>Binary Population and Spectral Synthesis — the stellar population models at the core of my research, now heading toward a v3 data release.</p>
+          <a class="go" href="https://bpass.auckland.ac.nz/">bpass.auckland.ac.nz →</a>
+      </div>
+      <div class="stack-card">
+          <h3>STARS</h3>
+          <p>A detailed stellar-evolution code used to follow binary systems through mass transfer, core collapse, and remnant formation.</p>
+          <a class="go" href="https://github.com/UoA-Stars-And-Supernovae/STARS">github.com/UoA-Stars-And-Supernovae/STARS →</a>
+      </div>
+      <div class="stack-card">
+          <h3>LIGO &amp; Virgo</h3>
+          <p>Observed compact-object merger rate densities that I use to constrain natal-kick parameters against real gravitational-wave events.</p>
+      </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="education">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Expertise</p>
+        <h2>From first-year CS to full binary-physics modelling.</h2>
+    </div>
+    <div class="timeline">
+        <div class="tl-item">
+          <p class="stage mono">Bachelor of Science</p>
+          <h3>Computer Science &amp; Physics</h3>
+          <p>Majoring in Computer Science, with an algorithmics and computability focus, and Physics, with an astrophysics focus.</p>
+      </div>
+      <div class="tl-item">
+          <p class="stage mono">Postgraduate Diploma in Science</p>
+          <h3>University of Auckland Ground Station One</h3>
+          <p>Worked with <a href="https://space.auckland.ac.nz/">Te Pūnaha Ātea</a> to help develop the University of Auckland's first ground station.</p>
+      </div>
+      <div class="tl-item">
+          <p class="stage mono">Master of Science</p>
+          <h3>The Missing Mergers: Modelling the observed binary neutron-star population and their mergers</h3>
+          <p>Worked with Professor Jan Eldridge to determine the nature of the natal supernova kick.</p>
+      </div>
+      <div class="tl-item">
+          <p class="stage mono">Doctor of Philosophy</p>
+          <h3>The Next Generation: Refining the Standard Population Synthesis Model to Better Predict Stellar Population Properties</h3>
+          <p>Working with Professor Jan Eldridge, Associate Professor Nick Rattenbury, and Dr Héloïse Stevance to more efficiently model the full physics of binary star systems.</p>
+      </div>
+      <div class="tl-item current">
+          <p class="stage mono">Research Fellow — current</p>
+          <h3>Full binary-physics modelling</h3>
+          <p>Working with Professor Jan Eldridge, Dr Nick Rattenbury, and Dr Héloïse Stevance to more efficiently model the full physics of binary star systems.</p>
+      </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="programming">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Programming</p>
+        <h2>Years of writing the code the models run on.</h2>
+    </div>
+    <p class="prog-intro">Python is my native language, but I've also worked in C, C++, C#, Lua, HTML/CSS/JS/jQuery, three generations of Fortran, PHP, and Julia.</p>
+    <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">C</span>
+        <span class="pill">C++</span>
+        <span class="pill">C#</span>
+        <span class="pill">Lua</span>
+        <span class="pill">HTML / CSS / JS / jQuery</span>
+        <span class="pill">Fortran 77 / 95 / 2003</span>
+        <span class="pill">PHP</span>
+        <span class="pill">Julia</span>
+    </div>
+    <div class="repo-row">
+        <div class="repo-badge"><div class="name">Kaitiaki</div></div>
+        <div class="repo-badge"><div class="name">Takahe</div></div>
+        <div class="repo-badge"><div class="name">glisten</div></div>
+        <div class="repo-badge"><div class="name">MyBBWiki</div></div>
+    </div>
+    <p class="repo-cta"><a class="btn btn-ghost" href="https://github.com/Krytic/">See it all on GitHub →</a></p>
+</div>
+</section>
+
+<section class="section" id="documents">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Documents</p>
+        <h2>CV, thesis, and publications.</h2>
+    </div>
+    <div class="doc-grid">
+        <a class="doc-card" href="https://ordinarystarman.com/SeanRichardsCV.pdf">
+          <span class="tag">PDF</span>
+          <h3>Curriculum Vitae</h3>
+          <p>Get a copy of my full academic CV.</p>
+      </a>
+      <a class="doc-card" href="https://zenodo.org/record/5523933/">
+          <span class="tag">Zenodo</span>
+          <h3>Master's Thesis</h3>
+          <p>The Missing Mergers: Modelling the observed binary neutron-star population and their mergers</p>
+      </a>
+      <a class="doc-card" href="https://hdl.handle.net/2292/75686">
+          <span class="tag">ResearchSpace</span>
+          <h3>Doctoral Thesis</h3>
+          <p>The Next Generation: Refining the Standard Population Synthesis Model to Better Predict Stellar Population Properties</p>
+      </a>
+      <a class="doc-card" href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0003-4448-8039&sort=date+desc">
+          <span class="tag">ADS</span>
+          <h3>Publications</h3>
+          <p>Find my papers on the Astrophysics Data System.</p>
+      </a>
+  </div>
+
+  <div class="callout" style="margin-top:56px;">
+    <div>
+      <h3>Curious about my PhD?</h3>
+      <p>I kept a live data tracker of where things stand — milestones, word counts, and everything in between.</p>
+  </div>
+  <a class="btn btn-primary" href="http://ordinarystarman.com/PhD">Open the tracker</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Say hello.</h2>
+    </div>
+    <div class="contact-grid">
+        <div class="contact-block">
+          <p class="label">Address</p>
+          <address>38 Princes Street<br>Auckland Central<br>Auckland 1010<br>New Zealand</address>
+      </div>
+      <div class="contact-block">
+          <p class="label">Email</p>
+          <p><a href="mailto:sean.richards@auckland.ac.nz">sean.richards@auckland.ac.nz</a></p>
+      </div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot-row">
+    <p>© 2026 Sean Richards — the Ordinary Starman</p>
+    <div class="social-row" aria-label="Social links" style="margin-top:0;">
+      <a class="social-badge" href="https://github.com/Krytic/" aria-label="GitHub">GH</a>
+      <a class="social-badge" href="https://twitter.com/OrdinaryStarman" aria-label="X / Twitter">X</a>
+      <a class="social-badge" href="https://www.linkedin.com/in/ordinarystarman/" aria-label="LinkedIn">in</a>
+      <a class="social-badge" href="https://bsky.app/profile/ordinarystarman.com" aria-label="Bluesky">BSky</a>
+      <a class="social-badge" href="https://www.tiktok.com/@ordinarystarman" aria-label="TikTok">TT</a>
+  </div>
+</div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+});
+
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+});
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
 </html>
