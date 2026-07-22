@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Student Projects — Sean Richards</title>
+        <meta name="description" content="Research projects available to Honours, Masters, PhD, and summer studentship students, supervised by Sean Richards at the University of Auckland.">
+        <link rel="stylesheet" href="assets/css/projects.css" />
+    </head>
+    <body>
+        <div class="stars" aria-hidden="true"></div>
+        <header class="site-header">
+            <div class="navwrap">
+                <a href="https://ordinarystarman.com/" class="brand"><span class="dot"></span>Sean Richards</a>
+                <a class="back-link" href="https://ordinarystarman.com/">← Back to site</a>
+            </div>
+        </header>
+        <section class="page-hero">
+            <div class="wrap">
+                <p class="eyebrow">Supervision · Honours, Masters, PhD &amp; Summer</p>
+                <h1>Student Projects</h1>
+                <p class="lede">A running list of research projects I'm offering to students, spanning binary star evolution, compact remnant kicks, and gravitational-wave populations. Get in touch if one looks interesting — projects can usually be scoped up or down to fit the level you're at.</p>
+                <div class="legend" id="filterBar">
+                    <button class="filter-pill active" data-level="all"><span class="swatch"></span>All projects</button>
+                    <button class="filter-pill" data-level="honours"><span class="swatch"></span>Honours</button>
+                    <button class="filter-pill" data-level="masters"><span class="swatch"></span>Masters</button>
+                    <button class="filter-pill" data-level="phd"><span class="swatch"></span>PhD</button>
+                    <button class="filter-pill" data-level="summer"><span class="swatch"></span>Summer studentship</button>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="wrap">
+                <!-- Populated at runtime from projects.yaml — see the parser script
+                    near the bottom of this file. Nothing needs to be hand-edited
+                    here; edit projects.yaml instead. -->
+                <p class="loading-note mono" id="loadingNote">Loading projects…</p>
+                <div class="proj-grid" id="projGrid"></div>
+                <p class="empty-state" id="emptyState">No projects match that filter right now — try another, or get in touch about a custom project.</p>
+                <div class="callout">
+                    <div>
+                        <h3>Don't see quite the right fit?</h3>
+                        <p>I'm happy to talk through a custom project scoped to your interests and level — reach out and we'll figure it out. Please note that at this time I have no opportunities to be the primary PhD supervisor on a project.</p>
+                    </div>
+                    <a class="btn" href="mailto:sean.richards@auckland.ac.nz">Get in touch</a>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="foot-row">
+                <p>© 2026 Sean Richards — the Ordinary Starman</p>
+                <p><a href="https://ordinarystarman.com/" style="color:inherit;text-decoration:none;">ordinarystarman.com</a></p>
+            </div>
+        </footer>
+        <!-- jQuery + a small YAML parser (js-yaml), used only to load projects.yaml -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+        <script>
+            const ProjectFilters = (function () {
+              const filterBar = document.getElementById('filterBar');
+              const allBtn = filterBar.querySelector('[data-level="all"]');
+              const pills = Array.from(filterBar.querySelectorAll('.filter-pill'));
+              const emptyState = document.getElementById('emptyState');
+              let active = new Set();
+
+              function render() {
+                const cards = Array.from(document.querySelectorAll('.proj-card'));
+
+                if (active.size === 0) {
+                  pills.forEach(p => p.classList.toggle('active', p === allBtn));
+                  cards.forEach(c => c.classList.remove('hidden'));
+                  emptyState.classList.toggle('show', cards.length === 0);
+                  return;
+                }
+
+                allBtn.classList.remove('active');
+                pills.forEach(p => {
+                  if (p === allBtn) return;
+                  p.classList.toggle('active', active.has(p.dataset.level));
+                });
+
+                let visibleCount = 0;
+                cards.forEach(c => {
+                  const levels = (c.dataset.levels || '').split(' ').filter(Boolean);
+                  const show = levels.some(l => active.has(l));
+                  c.classList.toggle('hidden', !show);
+                  if (show) visibleCount++;
+                });
+                emptyState.classList.toggle('show', visibleCount === 0);
+              }
+
+              pills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                  const level = pill.dataset.level;
+                  if (level === 'all') {
+                    active.clear();
+                  } else if (active.has(level)) {
+                    active.delete(level);
+                  } else {
+                    active.add(level);
+                  }
+                  render();
+                });
+              });
+
+              return { refresh: render };
+            })();
+        </script>
+        <script>
+            /* ------------------------------------------------------------------
+               YAML-driven project list.
+               Reads /projects.yaml (same folder as this page), where each entry
+               looks like:
+
+                 project_code:
+                   title: A short title here
+                   desc: A longer abstract! I explain things here
+                   levels:
+                     - phd
+                     - masters
+                   funded: false
+                   tags:
+                     - Python
+                     - BPASS
+                     - PopSynth
+
+               Recognised values for each item in `levels` are: honours, masters,
+               phd, summer — these map directly to the badge-* / filter-pill
+               data-level values already defined in the CSS above. Unknown level
+               strings still render (as a plain badge with that text) but won't
+               have a themed colour or match a filter pill.
+               ------------------------------------------------------------------ */
+            (function ($) {
+              const LEVEL_LABELS = {
+                honours: 'Honours',
+                masters: 'Masters',
+                phd: 'PhD',
+                summer: 'Summer studentship'
+              };
+
+              const $grid = $('#projGrid');
+              const $loading = $('#loadingNote');
+              const $empty = $('#emptyState');
+
+              // Escape untrusted text before it goes into innerHTML.
+              function escapeHtml(value) {
+                return $('<div>').text(value == null ? '' : String(value)).html();
+              }
+
+              function levelBadge(level) {
+                const label = LEVEL_LABELS[level] || level;
+                return '<span class="level-badge badge-' + escapeHtml(level) + '">' +
+                  escapeHtml(label) + '</span>';
+              }
+
+              function buildCard(code, project) {
+                const levels = Array.isArray(project.levels) ? project.levels : [];
+                const tags = Array.isArray(project.tags) ? project.tags : [];
+
+                const badges = levels.map(levelBadge).join('');
+                const fundedBadge = project.funded
+                  ? '<span class="level-badge badge-funded">Funded</span>'
+                  : '';
+                const tagHtml = tags.map(function (tag) {
+                  return '<span class="char-tag">' + escapeHtml(tag) + '</span>';
+                }).join('');
+
+                const $card = $(
+                  '<article class="proj-card">' +
+                    '<div class="badge-row">' + badges + fundedBadge + '</div>' +
+                    '<h3></h3>' +
+                    '<p class="desc"></p>' +
+                    '<p class="char-label">Key characteristics</p>' +
+                    '<div class="char-row">' + tagHtml + '</div>' +
+                  '</article>'
+                );
+
+                $card.attr('data-code', code);
+                $card.attr('data-levels', levels.join(' '));
+                $card.find('h3').text(project.title || code);
+                $card.find('.desc').text(project.desc || '');
+
+                return $card;
+              }
+
+              function renderProjects(data) {
+                $grid.empty();
+
+                Object.keys(data || {}).forEach(function (code) {
+                  $grid.append(buildCard(code, data[code] || {}));
+                });
+
+                $loading.addClass('hidden');
+                ProjectFilters.refresh();
+              }
+
+              function showLoadError() {
+                $loading.addClass('hidden');
+                $empty.text('Could not load the project list right now — please try again shortly.').addClass('show');
+              }
+
+              $(function () {
+                $.get('projects.yaml', function (raw) {
+                  let data;
+                  try {
+                    data = jsyaml.load(raw);
+                  } catch (err) {
+                    console.error('projects.yaml failed to parse:', err);
+                    showLoadError();
+                    return;
+                  }
+                  renderProjects(data);
+                }, 'text').fail(function (xhr) {
+                  console.error('projects.yaml failed to load:', xhr.status, xhr.statusText);
+                  showLoadError();
+                });
+              });
+            })(jQuery);
+        </script>
+    </body>
+</html>

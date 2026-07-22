@@ -1,0 +1,30 @@
+# Student project listings for ordinarystarman.com/projects
+#
+# Format:
+#
+# project_code:
+#     title: A short title here
+#     desc: A longer abstract! I explain things here
+#     levels:
+#        - phd
+#        - masters
+#     funded: false
+#     tags:
+#        - Python
+#        - BPASS
+#        - PopSynth
+#
+# `levels` accepts: honours, masters, phd, summer (any combination).
+# `funded` is optional and defaults to false if omitted.
+# Project codes just need to be unique within this file.
+
+kick_bpass_v3:
+    title: Modelling the lives of the earliest stars
+    desc: This project will focus on the evolutionary behaviour of Population III stars, with a view to creating a small population of metal-poor massive stars, using our custom version of the Cambridge STARS code. These stars – virtually untouched by elements heavier than helium – will have trace elements of heavier elements inserted, to determine how these stars will eventually evolve.
+    levels:
+        - summer
+    funded: true
+    tags:
+        - FORTRAN
+        - BPASS
+        - Population synthesis
