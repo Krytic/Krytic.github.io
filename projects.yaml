@@ -18,7 +18,7 @@
 # `funded` is optional and defaults to false if omitted.
 # Project codes just need to be unique within this file.
 
-kick_bpass_v3:
+earliest_stars:
     title: Modelling the lives of the earliest stars
     desc: This project will focus on the evolutionary behaviour of Population III stars, with a view to creating a small population of metal-poor massive stars, using our custom version of the Cambridge STARS code. These stars – virtually untouched by elements heavier than helium – will have trace elements of heavier elements inserted, to determine how these stars will eventually evolve.
     levels:
@@ -28,3 +28,26 @@ kick_bpass_v3:
         - FORTRAN
         - BPASS
         - Population synthesis
+
+kick_prescriptions:
+    title: Further refinement of the natal supernova kick
+    desc: THe fact that nascent compact objects receive a seemingly phantom velocity has been known for 60 years, but yet questions remain over the form and physics. Various models have been proposed to explain the kick, which require further refinement. This project can be adapted for an honours student (predominantly numerical) or a masters student (numerical and theoretical).
+    levels:
+        - honours
+        - masters
+    funded: false
+    tags:
+        - Population synthesis
+        - FORTRAN
+        - BPASS
+
+thorne_zytkow:
+    title: The production of Thorne-Zytkow Objects
+    desc: Thorne-Zytkow objects, red giants with neutron star cores, currently lack detection candidates. This project seeks to create coupled stellar evolution and atmosphere models for these exotic stars, with a view to being able to produce plausible candidates for their detection.
+    levels:
+        - masters
+    funded: false
+    tags:
+        - FORTRAN
+        - Spectral synthesis
+        - Numerical modelling
