@@ -31,7 +31,7 @@ earliest_stars:
 
 kick_prescriptions:
     title: Further refinement of the natal supernova kick
-    desc: THe fact that nascent compact objects receive a seemingly phantom velocity has been known for 60 years, but yet questions remain over the form and physics. Various models have been proposed to explain the kick, which require further refinement. This project can be adapted for an honours student (predominantly numerical) or a masters student (numerical and theoretical).
+    desc: The fact that nascent compact objects receive a seemingly phantom velocity has been known for 60 years, but yet questions remain over the form and physics. Various models have been proposed to explain the kick, which require further refinement. This project can be adapted for an honours student (predominantly numerical) or a masters student (numerical and theoretical).
     levels:
         - honours
         - masters
