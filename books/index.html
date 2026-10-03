@@ -19,6 +19,14 @@
 		h1, h2, h3, h4, h5, h6 {
 			font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
 		}
+		.blog-subheader-logo {
+			font-family: Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+			font-size: 1.5rem;
+			color: white !important;
+		}
+		.blog-subheader-logo:hover {
+			text-decoration: none;
+		}
 		.flex-auto {
 			flex: 0 0 auto;
 		}
@@ -83,6 +91,12 @@
 				<div class="row flex-nowrap justify-content-between align-items-center">
 					<div class="col-12 text-center">
 						<a class="blog-header-logo text-body-emphasis text-decoration-none">My <span id="current_year"></span> Book List</a>
+					</div>
+				</div>
+				<br />
+				<div class="row flex-nowrap justify-content-between align-items-center">
+					<div class="col-12 text-center">
+						<a class="blog-subheader-logo text-body-emphasis text-decoration-none"><span id="tbr_counter"></span> books on the TBR list</a>
 					</div>
 				</div>
 			</header>
@@ -221,7 +235,7 @@
 				    dataType: "text",
 				    complete: function () {
 				    	current_year = get_year();
-
+				    	tbr_counter = 0;
 				        for (var i = 1; i <= data.length - 1; i++) {
 				        	read_year = data[i][0];
 				        	isNewTag = data[i][1];
@@ -231,12 +245,12 @@
 				        	review = data[i][5];
 
 				        	if (read_year.toString() !== current_year.toString()) {
-				        		console.log("Skipping " + bookTitle + ", because " + read_year + " is not the current year.");
 				        		continue;
 				        	}
 
 				        	if (isNewTag == "new") {
 				        		table = $("#new-books");
+				        		tbr_counter += 1; // we assume rereads don't go on the TBR (they're lowest priority for me anyways)
 				        	} else {
 				        		table = $("#reread-books");
 				        	}
@@ -285,6 +299,7 @@
 				        	table.append("<tr class=\"book-row " + className + "\"><td>" + weight + bookTitle + "<span class=\"author\">" + bookAuthor + "</span></td><td class=\"fw-bold\">" + note + "</td></tr>");
 				        }
 
+				        $("#tbr_counter").text(tbr_counter.toString());
 				        sortTable(0, 'new-books');
 				        sortTable(0, 'reread-books');
 				        sortTable(0, 'finished-books');
