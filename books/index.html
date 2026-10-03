@@ -104,7 +104,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-sm-4">
-						<h2 class="pt-4 table-heading-title border-bottom">New Reads</h2>
+						<h2 class="pt-4 table-heading-title border-bottom">New Reads (<span id="new_counter"></span>)</h2>
 						<table class="table table-dark">
 							<thead>
 								<tr><th>Book</th><th>Status</th></tr>
@@ -114,7 +114,7 @@
 						</table>
 					</div>
 					<div class="col-sm-4">
-						<h2 class="pt-4 table-heading-title border-bottom">Rereads</h2>
+						<h2 class="pt-4 table-heading-title border-bottom">Rereads (<span id="reread_counter"></span>)</h2>
 						<table class="table table-dark">
 							<thead>
 								<tr><th>Book</th><th>Status</th></tr>
@@ -125,7 +125,7 @@
 						</table>
 					</div>
 					<div class="col-sm-4">
-						<h2 class="pt-4 table-heading-title border-bottom">Finished Books</h2>
+						<h2 class="pt-4 table-heading-title border-bottom">Finished Books (<span id="finished_counter"></span>)</h2>
 						<table class="table table-dark">
 							<thead>
 								<tr><th>Book</th><th>Notes</th></tr>
@@ -236,6 +236,8 @@
 				    complete: function () {
 				    	current_year = get_year();
 				    	tbr_counter = 0;
+				    	reread_counter = 0;
+				    	finished_counter = 0;
 				        for (var i = 1; i <= data.length - 1; i++) {
 				        	read_year = data[i][0];
 				        	isNewTag = data[i][1];
@@ -250,9 +252,14 @@
 
 				        	if (isNewTag == "new") {
 				        		table = $("#new-books");
-				        		tbr_counter += 1; // we assume rereads don't go on the TBR (they're lowest priority for me anyways)
+				        		if (status != "finished") {
+					        		tbr_counter += 1; // we assume rereads don't go on the TBR (they're lowest priority for me anyways)
+					        	}
 				        	} else {
 				        		table = $("#reread-books");
+				        		if (status != "finished") {
+					        		reread_counter += 1;
+					        	}
 				        	}
 
 				        	firstNote = "";
@@ -262,6 +269,7 @@
 				        	if (status == "finished") {
 				        		className = "";
 				        		note = "Finished";
+				        		finished_counter += 1;
 
 				        		table = $("#finished-books");
 
@@ -300,6 +308,9 @@
 				        }
 
 				        $("#tbr_counter").text(tbr_counter.toString());
+				        $("#new_counter").text(tbr_counter.toString());
+				        $("#reread_counter").text(reread_counter.toString());
+				        $("#finished_counter").text(finished_counter.toString());
 				        sortTable(0, 'new-books');
 				        sortTable(0, 'reread-books');
 				        sortTable(0, 'finished-books');
