@@ -25,3 +25,10 @@ pc_one:
     # doc: https://docs.google.com/
     photo: "img/dnd/aurora_everlast.png"
 
+npc_two:
+    type: NPC
+    name: Necromancer Bob
+    pronouns: he/him
+    race: Tiefling
+    class: Wizard
+    bio: His name wasn't Bob and he wasn't a necromancer. The players latched on to him graverobbing in the first session they met him, and the nickname stuck.
