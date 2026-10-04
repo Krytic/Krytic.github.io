@@ -1,0 +1,27 @@
+# Characters for ordinarystarman.com/dnd
+#
+# type decides which list a card appears in: PC, NPC or BBEG.
+# name, pronouns, race and class are shown under/beside the name.
+# doc (link to a Google Doc etc.) and photo (image path) are optional.
+# Codes just need to be unique within this file; order here = order on the page.
+
+# Aurora Everlast
+# Tilly Galloway
+# Awekōtuku
+# Elegy Noakes
+# Providence Montaigne
+# Amethyst
+# Calliope Amberhand
+# Katerina Hallowstorm
+# Eldrin Triswraek
+
+pc_one:
+    type: PC
+    name: Aurora Everlast
+    pronouns: she/her
+    race: Aasimar
+    class: Rogue 3 (Mastermind) / Bard 3 (Eloquence)
+    bio: Relentless hopecore bard. She was thrust into being the face of the rebellion against the tyrannical Black Dragon Queen. She doesn't want to rule, but she refuses to accept the status quo, and always dreams of something different.
+    # doc: https://docs.google.com/
+    photo: "img/dnd/aurora_everlast.png"
+
